@@ -22,7 +22,10 @@ class Page extends ModuleState
 
 	public function refresh()
 	{
-		for (object in objects)
+		if (objects == null)
+			objects = new FlxTypedGroup<FlxBasic>();
+
+		for (object in objects.members)
 		{
 			objects.members.remove(object);
 			object.destroy();
@@ -36,9 +39,9 @@ class Page extends ModuleState
 			{
 				var newObject:FlxText = new FlxText(position.x, position.y);
 
-				newnewObject.text = content.event.params.text_content ?? "";
-				newnewObject.size = content.event.params.text_size ?? 16;
-				newnewObject.color = content.event.params.text_color ?? FlxColor.BLACK;
+				newObject.text = content.event.params.text_content ?? "";
+				newObject.size = content.event.params.text_size ?? 16;
+				newObject.color = content.event.params.text_color ?? FlxColor.BLACK;
 
 				objects.add(newObject);
 			}
@@ -57,7 +60,7 @@ class Page extends ModuleState
 					newObject.loadGraphic(content.event.params.img_assetPath);
 				}
 
-				newnewObject.scale.set(content.event.params.img_scale.x, content.event.params.img_scale.y);
+				newObject.scale.set(content.event.params.img_scale.x, content.event.params.img_scale.y);
 
 				objects.add(newObject);
 			}

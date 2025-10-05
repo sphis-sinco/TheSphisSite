@@ -3,12 +3,6 @@ package states.site;
 import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 
-class PageEventIdentifiers
-{
-	public static var TEXT:PageEventID = new PageEventID('text');
-	public static var IMAGE:PageEventID = new PageEventID('image');
-}
-
 class PageEventID
 {
 	public var id:String;
