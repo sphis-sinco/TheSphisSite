@@ -1,8 +1,5 @@
 package source.sphis.site;
 
-import haxe.macro.Compiler;
-import polymod.PolymodConfig;
-
 using StringTools;
 
 #if sys
