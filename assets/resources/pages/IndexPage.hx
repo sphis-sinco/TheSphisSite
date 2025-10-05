@@ -20,9 +20,10 @@ class IndexPage extends Module
 		{
 			Index.instance.pageContent = [
 				new PageEvent(new PageEventID('text', {
-					general_position: new Position(640, 360),
+					general_position: new Position(10, 10),
+
 					text_content: "Hello world!",
-					text_size: 32
+					text_size: 32,
 				}), 'hi'),
 			];
 		}
