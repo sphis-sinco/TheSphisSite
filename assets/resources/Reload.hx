@@ -1,7 +1,7 @@
-import events.UpdateEvent;
 import flixel.FlxG;
 import modding.PolymodHandler;
-import modules.Module;
+import modding.events.UpdateEvent;
+import modding.modules.Module;
 
 class Reload extends Module
 {

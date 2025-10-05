@@ -8,6 +8,8 @@ import polymod.Polymod;
 import polymod.format.ParseRules;
 import polymod.fs.ZipFileSystem;
 import states.*;
+import states.site.*;
+import states.site.PageEventIdentifiers.PageEventID;
 import utils.StateUtils;
 #if sys
 import sys.FileSystem;
@@ -49,11 +51,7 @@ class PolymodHandler
 		addImports();
 	}
 
-	public static function addImports()
-	{
-		Polymod.addDefaultImport(BlankState);
-		Polymod.addDefaultImport(ModuleState);
-	}
+	public static function addImports() {}
 
 	public static function buildParseRules():polymod.format.ParseRules
 	{
