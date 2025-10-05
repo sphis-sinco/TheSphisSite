@@ -40,24 +40,6 @@ class Prebuild
 		var duration:Float = end - start;
 		#end
 
-		#if debug
-		log('Debug build', true);
-		#else
-		log('Non-debug build', true);
-		#end
-
-		#if watch
-		log('Watch build', true);
-		#else
-		log('Non-watch build', true);
-		#end
-
-		#if watchassets
-		log('Watch-assets build', true);
-		#else
-		log('Non-watch-assets build', true);
-		#end
-
 		log('------------------------ MACROS -----------------------', false);
 	}
 
