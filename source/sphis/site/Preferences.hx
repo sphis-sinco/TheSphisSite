@@ -24,5 +24,10 @@ class Preferences
 		FlxG.save.bind('TheSphisSite', Application.current.meta.get('company'));
 
 		FlxG.save.data.darkMode ??= false;
+
+		Application.current.onExit.add(l ->
+		{
+			FlxG.save.flush();
+		});
 	}
 }
