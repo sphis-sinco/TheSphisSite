@@ -32,7 +32,7 @@ class DummyPage extends Module
 					img_graphicColor: FlxColor.RED,
 					img_graphicDimensions: [640, FlxG.height],
 
-					url_text_hover_color: FlxColor.WHITE,
+					url_image_graphic_hover_cover: FlxColor.WHITE,
 				}), 'backdrop'),
 				new PageEvent(new PageEventID(PageEventID.url_text, {
 					general_position: new Position(10, 10),
