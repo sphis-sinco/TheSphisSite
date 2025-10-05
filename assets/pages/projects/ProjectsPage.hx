@@ -22,8 +22,10 @@ class ProjectsPage extends Module
 
 		projects = [];
 
-		var INDIE_GAME = 'Game';
 		var BLANK = '';
+		var BLOAT = 'Bloat';
+
+		var INDIE_GAME = 'Game';
 		var FNF_MOD_PSYCH = 'FNF MOD (Psych)';
 		var FNF_MOD_VSLICE = 'FNF MOD (V-Slice)';
 
@@ -55,6 +57,17 @@ class ProjectsPage extends Module
 		addProject('FNF vs Guy', 'https://gamebanana.com/mods/556236', FNF_MOD_PSYCH);
 		addProject('FNF vs Guy (CONCEPT EDITION)', 'https://gamebanana.com/mods/492398', FNF_MOD_PSYCH);
 		addProject('Pico Pico (Yellow Mix)', 'https://gamebanana.com/mods/555461', FNF_MOD_VSLICE);
+
+		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
+		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
+		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
+		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
+		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
+		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
+		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
+		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
+		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
+		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
 
 		addProject('', '', BLANK);
 		addProject('', '', BLANK);
@@ -138,7 +151,7 @@ class ProjectsPage extends Module
 
 			if (position.y >= FlxG.height)
 			{
-				position.x += text_content.length * 18;
+				position.x += text_content.length * 24;
 				position.y = 130;
 			}
 
