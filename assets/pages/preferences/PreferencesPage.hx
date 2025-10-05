@@ -37,7 +37,21 @@ class PreferencesPage extends Module
 			ModuleHandler.getModule('base-page-shit').back(new Position(10, 130)),
 
 			new PageEvent(new PageEventID(PageEventID.url_text, {
-				general_position: new Position(/* 32 + 50 */ 10, 130 + 50),
+				general_position: new Position(/* 32 */ 10, 130 + 50),
+
+				text_content: "Clear Save",
+				text_size: 24,
+				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
+
+				url_obj_pressed_callback: () ->
+				{
+					FlxG.save.erase();
+					FlxG.switchState(() -> new BlankPage('preferences'));
+				},
+				url_text_hover_color: FlxColor.RED
+			}), 'clear-save-text'),
+			new PageEvent(new PageEventID(PageEventID.url_text, {
+				general_position: new Position(10, 130 + (50 * 2)),
 
 				text_content: "Dark mode: " + Preferences.darkMode,
 				text_size: 24,
@@ -50,14 +64,6 @@ class PreferencesPage extends Module
 				},
 				url_text_hover_color: FlxColor.LIME
 			}), 'dark-mode-toggle'),
-			/*
-				new PageEvent(new PageEventID(PageEventID.image, {
-					general_position: new Position(32, 130 + 50),
-
-					img_assetPath: PathUtils.getImage('pages/preferences/checkbox-' + ((Preferences.darkMode) ? 'on' : 'off')),
-					img_scale: new Position(2, 2),
-				}), 'dark-mode-toggle-checkbox'),
-			 */
 		];
 	}
 
