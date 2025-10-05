@@ -186,17 +186,17 @@ class ProjectsPage extends Module
 		if (event.state != 'projects')
 			return;
 
-		if (max_x > 1280)
+		if (max_x > 640)
 		{
 			if (FlxG.keys.anyPressed([FlxKey.A, FlxKey.LEFT]))
 				camFollow.x -= 32;
 			if (FlxG.keys.anyPressed([FlxKey.D, FlxKey.RIGHT]))
 				camFollow.x += 32;
 
-			if (camFollow.x < 0)
-				camFollow.x = 0;
-			if (camFollow.x >= max_x)
-				camFollow.x = max_x;
+			if (camFollow.x < 640)
+				camFollow.x = 640;
+			if (camFollow.x >= 640 + max_x)
+				camFollow.x = 640 + max_x;
 		}
 
 		if (performedPostCreateFunctions)
@@ -212,7 +212,7 @@ class ProjectsPage extends Module
 		if (BlankPage.instance.getObject('hello-world') != null)
 		{
 			BlankPage.instance.getObject('hello-world').scrollFactor.set();
-			BlankPage.instance.getObject('hello-world').text += '\n(Projects Page)' + ((max_x > 1280) ? ' (LEFT/RIGHT / A/D to scroll)' : '');
+			BlankPage.instance.getObject('hello-world').text += '\n(Projects Page)' + ((max_x > 640) ? ' (LEFT/RIGHT / A/D to scroll)' : '');
 		}
 
 		if (BlankPage.instance.getObject('version') != null)
