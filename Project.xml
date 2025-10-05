@@ -32,9 +32,10 @@
 	<set name="BUILD_DIR" value="export/debug" if="debug"/>
 	<set name="BUILD_DIR" value="export/release" unless="debug"/>
 
-	<source path="source" />
-	<assets path="assets" exclude="assets/scripts/tests/" unless="TEST_SCRIPTS"/>
-	<assets path="assets" if="TEST_SCRIPTS"/>
+	<source path="source"/>
+	<source path="assets" if="watch-assets"/>
+	
+	<assets path="assets"/>
 	<assets path="mods" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
