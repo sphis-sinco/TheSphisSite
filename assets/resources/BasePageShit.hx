@@ -50,7 +50,7 @@ class BasePageShit extends Module
 		splitter = new PageEvent(new PageEventID(PageEventID.image, {
 			general_position: new Position(0, 100),
 			img_makeGraphic: true,
-			img_graphicColor: (Preferences.darkMode) ? FlxColor.fromString('0xA0A0A0') : FlxColor.fromString('0x282828'),
+			img_graphicColor: (Preferences.darkMode) ? FlxColor.fromString('0xA0A0A0') : FlxColor.fromString('0x808080'),
 			img_graphicDimensions: [FlxG.width, 16],
 		}), 'splitter');
 	}
