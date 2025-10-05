@@ -6,6 +6,7 @@ import hscript.Interp;
 import hscript.Tools;
 import polymod.hscript._internal.PolymodClassDeclEx.PolymodClassImport;
 import polymod.hscript._internal.PolymodClassDeclEx.PolymodStaticClassReference;
+import polymod.hscript._internal.PolymodEnumDeclEx;
 import polymod.hscript._internal.PolymodExprEx;
 
 using StringTools;
