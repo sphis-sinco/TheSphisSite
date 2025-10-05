@@ -13,6 +13,7 @@ class Page extends ModuleState
 {
 	public var pageContent:Array<PageEvent> = [];
 
+	public var addedObjectIDS:Array<String> = [];
 	public var objects:FlxTypedGroup<FlxBasic>;
 
 	override public function new(id:String)
@@ -30,6 +31,7 @@ class Page extends ModuleState
 	{
 		super.create();
 
+		addedObjectIDS = [];
 		if (objects == null)
 			objects = new FlxTypedGroup<FlxBasic>();
 		refresh();
@@ -45,6 +47,23 @@ class Page extends ModuleState
 			if (object.update_callback != null)
 				object.update_callback();
 		}
+	}
+
+	override function destroy()
+	{
+		if (objects != null)
+		{
+			for (object in objects.members)
+			{
+				objects.members.remove(object);
+				object.destroy();
+			}
+		}
+
+		addedObjectIDS = [];
+		pageContent = [];
+
+		super.destroy();
 	}
 
 	public function getObject(id:String):FlxBasic
@@ -133,13 +152,24 @@ class Page extends ModuleState
 						content.event.params.url_obj_pressed_callback();
 				}
 			}
+		}
 
-			trace('Parsed URL_Text Event: ${content.id}');
+		if (!addedObjectIDS.contains(content.id))
+		{
+			if (content.event.id == 'url_text')
+				trace('Parsed URL_Text Event: ${content.id}');
+			else
+				trace('Parsed Text Event: ${content.id}');
+			objects.add(newObject);
+			addedObjectIDS.push(content.id);
 		}
 		else
-			trace('Parsed Text Event: ${content.id}');
-
-		objects.add(newObject);
+		{
+			if (content.event.id == 'url_text')
+				trace('Did not add potential duplicate URL_Text Event: ${content.id}');
+			else
+				trace('Did not add potential duplicate Text Event: ${content.id}');
+		}
 	}
 
 	public function parseImage(contentID:String, position:Position)
@@ -183,12 +213,23 @@ class Page extends ModuleState
 						content.event.params.url_obj_pressed_callback();
 				}
 			}
+		}
 
-			trace('Parsed URL_Image Event: ${content.id}');
+		if (!addedObjectIDS.contains(content.id))
+		{
+			if (content.event.id == 'url_image')
+				trace('Parsed URL_Image Event: ${content.id}');
+			else
+				trace('Parsed Image Event: ${content.id}');
+			objects.add(newObject);
+			addedObjectIDS.push(content.id);
 		}
 		else
-			trace('Parsed Image Event: ${content.id}');
-
-		objects.add(newObject);
+		{
+			if (content.event.id == 'url_image')
+				trace('Did not add potential duplicate URL_Image Event: ${content.id}');
+			else
+				trace('Did not add potential duplicate Image Event: ${content.id}');
+		}
 	}
 }
