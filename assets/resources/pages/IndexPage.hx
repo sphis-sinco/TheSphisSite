@@ -1,10 +1,12 @@
 import flixel.FlxG;
 import flixel.util.FlxColor;
 import sphis.site.modding.events.CreateEvent;
+import sphis.site.modding.events.UpdateEvent;
 import sphis.site.modding.modules.Module;
 import sphis.site.states.site.Index;
 import sphis.site.states.site.PageEvent;
 import sphis.site.states.site.PageEventID;
+import sphis.site.utils.GitUtils;
 import sphis.site.utils.Position;
 
 class IndexPage extends Module
@@ -38,6 +40,19 @@ class IndexPage extends Module
 				text_color: FlxColor.BLACK,
 			}), 'hello-world'),
 
+			new PageEvent(new PageEventID(PageEventID.text, {general_position: new Position(0, 10),
+
+				text_content: 'Git info:'
+				+ '\nCommit: '
+				+ GitUtils.getGitCommitHash()
+				+ '\nBranch: '
+				+ GitUtils.getGitBranch()
+				+ '\nLocal Changes: '
+				+ GitUtils.getGitHasLocalChanges(),
+				text_size: 16,
+				text_color: FlxColor.BLACK,
+			}), 'version'),
+
 			new PageEvent(new PageEventID(PageEventID.image, {
 				general_position: new Position(0, 100),
 
@@ -68,5 +83,23 @@ class IndexPage extends Module
 				url_text_hover_color: FlxColor.LIME
 			}), 'projects-url'),
 		];
+	}
+
+	public var performedPostCreateFunctions:Bool = false;
+
+	override function onUpdate(event:UpdateEvent)
+	{
+		super.onUpdate(event);
+
+		if (event.state != 'index' || performedPostCreateFunctions)
+			return;
+
+		performedPostCreateFunctions = true;
+
+		if (Index.instance.getObject('version') != null)
+		{
+			Index.instance.getObject('version').fieldWidth = FlxG.width;
+			Index.instance.getObject('version').alignment = 'right';
+		}
 	}
 }

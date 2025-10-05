@@ -1,6 +1,6 @@
-// package funkin.util.macro;
-package sphis.site.macro;
+package funkin.util.macro;
 
+// package sphis.site.macro;
 #if !display
 class GitCommit
 {
@@ -26,7 +26,7 @@ class GitCommit
 
 		process.close();
 
-		haxe.macro.Context.info('Git Commit ID: ${commitHashSplice}', haxe.macro.Context.currentPos());
+		trace('Git Commit ID: ${commitHashSplice}');
 
 		// Generates a string expression
 		return macro $v{commitHashSplice};
@@ -56,7 +56,7 @@ class GitCommit
 
 		var branchName:String = branchProcess.stdout.readLine();
 		branchProcess.close();
-		haxe.macro.Context.info('Git Branch Name: ${branchName}', haxe.macro.Context.currentPos());
+		trace('Git Branch Name: ${branchName}');
 
 		// Generates a string expression
 		return macro $v{branchName};
@@ -103,7 +103,7 @@ class GitCommit
 				throw e;
 			}
 		}
-		haxe.macro.Context.info('Git Status Output: ${output}', haxe.macro.Context.currentPos());
+		trace('Git Status Output: ${output}');
 
 		// Generates a string expression
 		return macro $v{output.length > 0};
