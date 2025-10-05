@@ -113,7 +113,7 @@ class Page extends ModuleState
 		{
 			var position = content.event.params.general_position ?? new Position(0, 0);
 
-			trace('Found content event: "${content.event.id}" with id "${content.id}". Parsing...');
+			// trace('Found content event: "${content.event.id}" with id "${content.id}". Parsing...');
 
 			switch (content.event.id.toLowerCase())
 			{
