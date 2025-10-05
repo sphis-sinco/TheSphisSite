@@ -64,8 +64,8 @@ class ProjectsPage extends Module
 		addProject('Pico Pico (Yellow Mix)', 'https://gamebanana.com/mods/555461', FNF_MOD_VSLICE);
 
 		if (doBloat)
-			projects = [];
 		{
+			projects = [];
 			var starti = 255;
 			var i = starti;
 			while (i > 0)
