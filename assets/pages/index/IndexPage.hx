@@ -3,6 +3,7 @@ import flixel.util.FlxColor;
 import sphis.site.modding.events.CreateEvent;
 import sphis.site.modding.events.UpdateEvent;
 import sphis.site.modding.modules.Module;
+import sphis.site.states.site.BlankPage;
 import sphis.site.states.site.Index;
 import sphis.site.states.site.PageEvent;
 import sphis.site.states.site.PageEventID;
@@ -82,6 +83,20 @@ class IndexPage extends Module
 				url_obj_pressed_callback: () -> {},
 				url_text_hover_color: FlxColor.LIME
 			}), 'projects-url'),
+
+			new PageEvent(new PageEventID(PageEventID.url_text, {
+				general_position: new Position(10, 230),
+
+				text_content: "Preferences",
+				text_size: 24,
+				text_color: FlxColor.BLACK,
+
+				url_obj_pressed_callback: () ->
+				{
+					FlxG.switchState(() -> new BlankPage('preferences-menu'));
+				},
+				url_text_hover_color: FlxColor.LIME
+			}), 'preferences-url'),
 		];
 	}
 
