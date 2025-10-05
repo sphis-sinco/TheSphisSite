@@ -18,7 +18,7 @@ class ModuleHandler
 	{
 		destroyModules();
 
-		var newModules = ScriptedModule.listScriptClasses();
+		var newModules:Array<String> = ScriptedModule.listScriptClasses();
 		trace('Found ${newModules.length} modules to load');
 		for (module in newModules)
 		{
