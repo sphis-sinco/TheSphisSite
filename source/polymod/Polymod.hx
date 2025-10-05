@@ -788,8 +788,21 @@ class Polymod
 
 	public static function debug(message:String, ?posInfo:haxe.PosInfos):Void
 	{
+		var msgPrefixesIDontWannaSee = ["Imported class ", "Registering scripted class "];
+
 		if (PolymodConfig.debug)
-			trace(message);
+		{
+			var continueWithTrace = true;
+
+			for (prefix in msgPrefixesIDontWannaSee)
+			{
+				if (continueWithTrace)
+					continueWithTrace = !message.startsWith(prefix);
+			}
+
+			if (continueWithTrace)
+				trace(message);
+		}
 	}
 
 	/**
