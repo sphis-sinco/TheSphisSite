@@ -2,6 +2,9 @@ package states.site;
 
 class PageEventID
 {
+	public static var text:String = 'text';
+	public static var image:String = 'image';
+
 	public var id:String;
 	public var params:PageEventIDParams;
 

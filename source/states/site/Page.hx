@@ -70,7 +70,8 @@ class Page extends ModuleState
 					newObject.loadGraphic(content.event.params.img_assetPath);
 				}
 
-				newObject.scale.set(content.event.params.img_scale.x, content.event.params.img_scale.y);
+				var scale = content.event.params.img_scale ?? new Position(1, 1);
+				newObject.scale.set(scale.x, scale.y);
 
 				trace('Parsed Image Event: ' + content.id);
 				objects.add(newObject);
