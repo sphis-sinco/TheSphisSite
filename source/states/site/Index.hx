@@ -11,4 +11,13 @@ class Index extends Page
 			instance = null;
 		instance = this;
 	}
+	override function create()
+	{
+		super.create();
+	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+	}
 }

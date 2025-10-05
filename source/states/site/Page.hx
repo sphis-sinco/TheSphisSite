@@ -20,9 +20,10 @@ class Page extends ModuleState
 
 		if (objects == null)
 			objects = new FlxTypedGroup<FlxBasic>();
+		refresh();
+
 		add(objects);
 
-		refresh();
 	}
 
 	public function refresh()
