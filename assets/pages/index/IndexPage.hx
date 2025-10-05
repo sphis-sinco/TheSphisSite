@@ -1,5 +1,6 @@
 import flixel.FlxG;
 import flixel.util.FlxColor;
+import sphis.site.Preferences;
 import sphis.site.modding.events.CreateEvent;
 import sphis.site.modding.events.UpdateEvent;
 import sphis.site.modding.modules.Module;
@@ -26,6 +27,7 @@ class IndexPage extends Module
 
 		performedPostCreateFunctions = false;
 
+		ModuleHandler.getModule('base-page-shit').reload();
 		Index.instance.pageContent = [
 			ModuleHandler.getModule('base-page-shit').backdrop,
 			ModuleHandler.getModule('base-page-shit').helloworld,
@@ -37,7 +39,7 @@ class IndexPage extends Module
 
 				text_content: "News",
 				text_size: 24,
-				text_color: FlxColor.BLACK,
+				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 
 				url_obj_pressed_callback: () -> {},
 				url_text_hover_color: FlxColor.LIME
@@ -48,7 +50,7 @@ class IndexPage extends Module
 
 				text_content: "Projects",
 				text_size: 24,
-				text_color: FlxColor.BLACK,
+				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 
 				url_obj_pressed_callback: () -> {},
 				url_text_hover_color: FlxColor.LIME
@@ -59,7 +61,7 @@ class IndexPage extends Module
 
 				text_content: "Preferences",
 				text_size: 24,
-				text_color: FlxColor.BLACK,
+				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 
 				url_obj_pressed_callback: () ->
 				{

@@ -1,5 +1,6 @@
 import flixel.FlxG;
 import flixel.util.FlxColor;
+import sphis.site.Preferences;
 import sphis.site.modding.events.CreateEvent;
 import sphis.site.modding.events.UpdateEvent;
 import sphis.site.modding.modules.Module;
@@ -26,6 +27,7 @@ class PreferencesPage extends Module
 
 		performedPostCreateFunctions = false;
 
+		ModuleHandler.getModule('base-page-shit').reload();
 		BlankPage.instance.pageContent = [
 			ModuleHandler.getModule('base-page-shit').backdrop,
 			ModuleHandler.getModule('base-page-shit').helloworld,
@@ -37,7 +39,7 @@ class PreferencesPage extends Module
 
 				text_content: "Back",
 				text_size: 24,
-				text_color: FlxColor.BLACK,
+				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 
 				url_obj_pressed_callback: () ->
 				{
@@ -54,7 +56,16 @@ class PreferencesPage extends Module
 	{
 		super.onUpdate(event);
 
-		if (event.state != 'preferences' || performedPostCreateFunctions)
+		if (event.state != 'preferences')
+			return;
+
+		if (FlxG.keys.justReleased.T)
+		{
+			Preferences.darkMode = !Preferences.darkMode;
+			FlxG.switchState(() -> new BlankPage('preferences'));
+		}
+
+		if (performedPostCreateFunctions)
 			return;
 
 		performedPostCreateFunctions = true;
