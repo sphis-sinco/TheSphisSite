@@ -29,10 +29,10 @@ class DummyPage extends Module
 					general_position: new Position(640, 0),
 
 					img_makeGraphic: true,
-					img_graphicColor: FlxColor.RED,
+					img_graphicColor: FlxColor.WHITE,
 					img_graphicDimensions: [640, FlxG.height],
 
-					url_image_graphic_hover_cover: FlxColor.WHITE,
+					url_image_graphic_hover_color: FlxColor.BLUE,
 				}), 'backdrop'),
 				new PageEvent(new PageEventID(PageEventID.url_text, {
 					general_position: new Position(10, 10),

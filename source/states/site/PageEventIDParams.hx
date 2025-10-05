@@ -29,6 +29,6 @@ typedef PageEventIDParams =
 	?img_scale:Position,
 
 	// url_image id
-	?url_image_graphic_hover_cover:FlxColor,
+	?url_image_graphic_hover_color:FlxColor,
 	?url_image_hover_scale:Position,
 }

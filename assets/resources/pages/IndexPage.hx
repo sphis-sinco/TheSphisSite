@@ -32,7 +32,7 @@ class IndexPage extends Module
 					img_graphicColor: FlxColor.WHITE,
 					img_graphicDimensions: [640, FlxG.height],
 
-					url_image_graphic_hover_cover: FlxColor.RED,
+					url_image_graphic_hover_color: FlxColor.RED,
 				}), 'backdrop'),
 				new PageEvent(new PageEventID(PageEventID.url_text, {
 					general_position: new Position(10, 10),

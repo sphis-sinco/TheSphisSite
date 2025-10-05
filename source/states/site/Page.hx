@@ -99,10 +99,10 @@ class Page extends ModuleState
 			switch (content.event.id.toLowerCase())
 			{
 				case 'text', 'url_text':
-					parseText(content, position);
+					parseText(content.id, position);
 
 				case 'image', 'url_image':
-					parseImage(content, position);
+					parseImage(content.id, position);
 
 				default:
 					trace('Content event missing a parse: ${content.event.id}');
@@ -110,8 +110,10 @@ class Page extends ModuleState
 		}
 	}
 
-	public function parseText(content:PageEvent, position:Position)
+	public function parseText(contentID:String, position:Position)
 	{
+		var content = getObjectContent(contentID);
+
 		var newObject:FlxText = new FlxText(position.x, position.y);
 
 		newObject.string_ID = content.id;
@@ -140,16 +142,20 @@ class Page extends ModuleState
 		objects.add(newObject);
 	}
 
-	public function parseImage(content:PageEvent, position:Position)
+	public function parseImage(contentID:String, position:Position)
 	{
+		var content = getObjectContent(contentID);
+
 		var newObject:FlxSprite = new FlxSprite(position.x, position.y);
 
 		newObject.string_ID = content.id;
 
+		var graphicColor = content.event.params.img_graphicColor ?? FlxColor.RED;
+
 		if (content.event.params.img_makeGraphic)
 		{
 			var dimensions = content.event.params.img_graphicDimensions ?? [32, 32];
-			newObject.makeGraphic(dimensions[0], dimensions[1], content.event.params.img_graphicColor ?? FlxColor.RED);
+			newObject.makeGraphic(dimensions[0], dimensions[1], graphicColor);
 		}
 		else
 		{
@@ -161,12 +167,12 @@ class Page extends ModuleState
 
 		if (content.event.id == 'url_image')
 		{
+			var hoverColor = content.event.params.url_image_graphic_hover_color ?? FlxColor.GREEN;
+
 			newObject.update_callback = () ->
 			{
 				if (content.event.params.img_makeGraphic)
-					newObject.color = (FlxG.mouse.overlaps(newObject) ? (getObjectContent(newObject.string_ID)
-						.event.params.url_image_graphic_hover_cover ?? FlxColor.GREEN) : (getObjectContent(newObject.string_ID)
-							.event.params.img_graphicColor ?? FlxColor.RED));
+					newObject.color = (FlxG.mouse.overlaps(newObject) ? hoverColor : graphicColor);
 
 				var hoverScale = content.event.params.url_image_hover_scale ?? new Position(1, 1);
 				newObject.scale.set((FlxG.mouse.overlaps(newObject) ? hoverScale.x : scale.x), (FlxG.mouse.overlaps(newObject) ? hoverScale.y : scale.y));
