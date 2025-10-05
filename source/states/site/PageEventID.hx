@@ -4,6 +4,8 @@ class PageEventID
 {
 	public static var url_text:String = 'url_text';
 	public static var text:String = 'text';
+
+	public static var url_image:String = 'url_image';
 	public static var image:String = 'image';
 
 	public var id:String;

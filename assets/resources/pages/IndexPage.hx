@@ -25,19 +25,21 @@ class IndexPage extends Module
 		if (event.state == 'index')
 		{
 			Index.instance.pageContent = [
-				new PageEvent(new PageEventID(PageEventID.image, {
-					general_position: new Position(0, 0),
+				new PageEvent(new PageEventID(PageEventID.url_image, {
+					general_position: new Position(640, 0),
 
 					img_makeGraphic: true,
 					img_graphicColor: FlxColor.WHITE,
-					img_graphicDimensions: [FlxG.width, FlxG.height]
+					img_graphicDimensions: [640, FlxG.height],
+
+					url_text_hover_color: FlxColor.RED,
 				}), 'backdrop'),
 				new PageEvent(new PageEventID(PageEventID.url_text, {
 					general_position: new Position(10, 10),
 
 					text_content: "Hello world!",
 					text_size: 32,
-					text_color: FlxColor.BLACK,
+					text_color: FlxColor.WHITE,
 
 					url_text_hover_color: FlxColor.BLUE,
 					url_obj_pressed_callback: () ->
