@@ -33,11 +33,11 @@ class PolymodHandler
 		});
 		var preStateSwitch = function() ModuleHandler.callEvent(module ->
 		{
-			module.onStateSwitchPre(new StateSwitchEvent(Statesphis.site.utils.getCurrentState()));
+			module.onStateSwitchPre(new StateSwitchEvent(StateUtils.getCurrentState()));
 		});
 		var postStateSwitch = function() ModuleHandler.callEvent(module ->
 		{
-			module.onStateSwitchPost(new StateSwitchEvent(Statesphis.site.utils.getCurrentState()));
+			module.onStateSwitchPost(new StateSwitchEvent(StateUtils.getCurrentState()));
 		});
 
 		if (!FlxG.signals.focusGained.has(() -> focusGained))

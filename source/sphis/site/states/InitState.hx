@@ -12,6 +12,6 @@ class InitState extends FlxState
 
 		PolymodHandler.forceReloadAssets();
 
-		FlxG.switchState(() -> new states.site.Index());
+		FlxG.switchState(() -> new sphis.site.states.site.Index());
 	}
 }
