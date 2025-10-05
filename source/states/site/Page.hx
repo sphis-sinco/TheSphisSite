@@ -14,6 +14,13 @@ class Page extends ModuleState
 
 	public var objects:FlxTypedGroup<FlxBasic>;
 
+	override public function new(id:String)
+	{
+		super(id);
+
+		trace('Switched to Page: ' + id);
+	}
+
 	public function refresh()
 	{
 		if (objects == null)
