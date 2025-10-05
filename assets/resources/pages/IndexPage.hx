@@ -25,7 +25,7 @@ class IndexPage extends Module
 					text_content: "Hello world!",
 					text_size: 32,
 				}), 'hi'),
-			];
+			]
 		}
 	}
 }

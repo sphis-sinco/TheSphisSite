@@ -1,6 +1,7 @@
 package modding;
 
 import flixel.FlxG;
+import lime.app.Application;
 import modding.events.*;
 import modding.events.FocusEvent;
 // import modding.fixes.FlxPointClass;
@@ -104,6 +105,14 @@ class PolymodHandler
 	public static function onError(error:PolymodError)
 	{
 		trace('[${error.severity}] (${Std.string(error.code).toUpperCase()}): ${error.message}');
+		switch (error.code)
+		{
+			case SCRIPT_PARSE_ERROR:
+				Application.current.window.alert(error.message, "SCRIPT PARSE ERROR");
+			case VERSION_CONFLICT_API:
+				Application.current.window.alert(error.message, "API VERSION CONFLICT");
+			default:
+		}
 	}
 
 	public static function buildFileSystem():polymod.fs.ZipFileSystem
