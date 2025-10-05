@@ -20,6 +20,8 @@ class Module implements IFlxDestroyable
 
 	// the events
 
+	public function onInitalizePreferences(event:Dynamic) {}
+
 	public function onCreate(event:CreateEvent) {}
 
 	public function onUpdate(event:UpdateEvent) {}

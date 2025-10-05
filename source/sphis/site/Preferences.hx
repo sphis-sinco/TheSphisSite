@@ -2,6 +2,7 @@ package sphis.site;
 
 import flixel.FlxG;
 import lime.app.Application;
+import sphis.site.modding.modules.ModuleHandler;
 
 class Preferences
 {
@@ -28,6 +29,11 @@ class Preferences
 		Application.current.onExit.add(l ->
 		{
 			FlxG.save.flush();
+		});
+
+		ModuleHandler.callEvent(module ->
+		{
+			module.onInitalizePreferences(null);
 		});
 	}
 }

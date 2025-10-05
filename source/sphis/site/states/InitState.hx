@@ -10,8 +10,8 @@ class InitState extends FlxState
 	{
 		super.create();
 
-		Preferences.initalizePreferences();
 		PolymodHandler.forceReloadAssets();
+		Preferences.initalizePreferences();
 
 		FlxG.switchState(() -> new sphis.site.states.site.Index());
 	}

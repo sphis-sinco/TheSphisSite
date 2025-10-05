@@ -33,7 +33,7 @@ class PreferencesPage extends Module
 			ModuleHandler.getModule('base-page-shit').backdrop,
 			ModuleHandler.getModule('base-page-shit').helloworld,
 			ModuleHandler.getModule('base-page-shit').version,
-			ModuleHandler.getModule('base-page-shit').splitter,
+			ModuleHandler.getModule('base-page-shit').splitter(),
 			ModuleHandler.getModule('base-page-shit').back(new Position(10, 130)),
 
 			new PageEvent(new PageEventID(PageEventID.url_text, {

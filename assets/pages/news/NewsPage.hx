@@ -76,7 +76,7 @@ class NewsPage extends Module
 			ModuleHandler.getModule('base-page-shit').backdrop,
 			ModuleHandler.getModule('base-page-shit').helloworld,
 			ModuleHandler.getModule('base-page-shit').version,
-			ModuleHandler.getModule('base-page-shit').splitter,
+			ModuleHandler.getModule('base-page-shit').splitter(),
 			ModuleHandler.getModule('base-page-shit').back(new Position(10, 130)),
 		];
 
@@ -87,6 +87,11 @@ class NewsPage extends Module
 		{
 			var text_content = news.name;
 
+			if (!ModuleHandler.getModule('blog-save-stuff').blogsReadHasBlog(news.page))
+			{
+				text_content += ' (Unread)';
+			}
+
 			BlankPage.instance.pageContent.push(new PageEvent(new PageEventID(PageEventID.url_text, {
 				general_position: position.clone(),
 
@@ -96,6 +101,7 @@ class NewsPage extends Module
 
 				url_obj_pressed_callback: () ->
 				{
+					ModuleHandler.getModule('blog-save-stuff').addBlogToBlogsRead(news.page);
 					FlxG.switchState(() -> new BlankPage(news.page));
 				},
 				url_text_hover_color: (news.page != null && news.page != '') ? FlxColor.LIME : (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK

@@ -32,7 +32,7 @@ class IndexPage extends Module
 			ModuleHandler.getModule('base-page-shit').backdrop,
 			ModuleHandler.getModule('base-page-shit').helloworld,
 			ModuleHandler.getModule('base-page-shit').version,
-			ModuleHandler.getModule('base-page-shit').splitter,
+			ModuleHandler.getModule('base-page-shit').splitter(),
 
 			new PageEvent(new PageEventID(PageEventID.url_text, {
 				general_position: new Position(10, 130),

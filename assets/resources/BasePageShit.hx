@@ -18,7 +18,6 @@ class BasePageShit extends Module
 	public var backdrop:PageEvent;
 	public var helloworld:PageEvent;
 	public var version:PageEvent;
-	public var splitter:PageEvent;
 
 	public function reload()
 	{
@@ -47,9 +46,12 @@ class BasePageShit extends Module
 			text_size: 16,
 			text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 		}), 'version');
+	}
 
-		splitter = new PageEvent(new PageEventID(PageEventID.image, {
-			general_position: new Position(0, 100),
+	public function splitter(position:Position = null)
+	{
+		return new PageEvent(new PageEventID(PageEventID.image, {
+			general_position: position ?? new Position(0, 100),
 			img_makeGraphic: true,
 			img_graphicColor: (Preferences.darkMode) ? FlxColor.fromString('0xA0A0A0') : FlxColor.fromString('0x808080'),
 			img_graphicDimensions: [FlxG.width, 16],
