@@ -16,7 +16,7 @@ class FlxMacro
 		// The fields of the FlxClass.
 		var fields:Array<haxe.macro.Expr.Field> = haxe.macro.Context.getBuildFields();
 
-		haxe.macro.Context.info('[INFO] ${cls.name}: Adding [string_ID, update_callback] attributes...', haxe.macro.Context.currentPos());
+		haxe.macro.Context.info('${cls.name}: Adding [string_ID, update_callback] attributes...', haxe.macro.Context.currentPos());
 
 		// Here, we add the attributes to all FlxBasic objects.
 		// This has no functional code tied to it, but it can be used as a target value
