@@ -1,3 +1,5 @@
+import flixel.FlxG;
+import flixel.util.FlxColor;
 import modding.events.CreateEvent;
 import modding.modules.Module;
 import states.site.Index;
@@ -20,10 +22,18 @@ class IndexPage extends Module
 		{
 			Index.instance.pageContent = [
 				new PageEvent(new PageEventID('text', {
+					general_position: new Position(0, 0),
+
+					img_makeGraphic: true,
+					img_graphicColor: FlxColor.WHITE,
+					img_graphicDimensions: [FlxG.width, FlxG.height]
+				}), 'backdrop'),
+				new PageEvent(new PageEventID('text', {
 					general_position: new Position(10, 10),
 
 					text_content: "Hello world!",
 					text_size: 32,
+					text_color: FlxColor.BLACK
 				}), 'hi'),
 			];
 		}
