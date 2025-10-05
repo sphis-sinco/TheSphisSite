@@ -34,6 +34,8 @@
 
 	<source path="source"/>
 	<source path="assets" if="watch-assets"/>
+
+	<define name="watchassets" if="watch-assets" />
 	
 	<assets path="assets"/>
 	<assets path="mods" />
@@ -77,6 +79,9 @@
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
 	<haxeflag name="--macro" value="addMetadata('@:build(sphis.site.macro.FlxMacro.buildFlxBasic())', 'flixel.FlxBasic')" />
+	
+	<prebuild haxe="source/sphis/site/Prebuild.hx"/>
+	<postbuild haxe="source/sphis/site/Postbuild.hx"/>
 
 	<!--Remove the legacy health system-->
 	<haxedef name="FLX_NO_HEALTH" />
