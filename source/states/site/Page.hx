@@ -50,7 +50,7 @@ class Page extends ModuleState
 
 				newObject.text = content.event.params.text_content ?? "";
 				newObject.size = content.event.params.text_size ?? 16;
-				newObject.color = content.event.params.text_color ?? FlxColor.BLACK;
+				newObject.color = content.event.params.text_color ?? FlxColor.WHITE;
 
 				trace('Parsed Text Event: ' + content.id);
 				objects.add(newObject);
