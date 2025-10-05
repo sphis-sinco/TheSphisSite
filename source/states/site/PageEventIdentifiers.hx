@@ -22,8 +22,11 @@ class PageEventID
 }
 
 typedef PageEventIDParams = {
+	// general
+	?general_position:FlxPoint,
+
 	// text id
-	?text:String,
+	?text_content:String,
 	?text_size:Int,
 	?text_color:FlxColor,
 
