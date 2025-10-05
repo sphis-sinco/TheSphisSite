@@ -40,7 +40,7 @@ class IndexPage extends Module
 					text_color: FlxColor.BLACK,
 				}), 'hello-world'),
 				new PageEvent(new PageEventID(PageEventID.url_text, {
-					general_position: new Position(10, 80),
+					general_position: new Position(10, 100),
 
 					text_content: "News",
 					text_size: 16,
@@ -48,7 +48,7 @@ class IndexPage extends Module
 
 					url_obj_pressed_callback: () -> {},
 					url_text_hover_color: FlxColor.LIME
-				}), 'hello-world'),
+				}), 'news-url'),
 			];
 		}
 	}
