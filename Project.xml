@@ -46,6 +46,11 @@
 
 	<haxelib name="polymod" />
 	<haxelib name="hscript" />
+	<haxelib name="jsonpath" />
+	<haxelib name="jsonpatch" />
+	<haxelib name="thx.core" />
+	<haxelib name="thx.semver" />
+
 	<define name="hscriptPos" />
 
 	<!-- Options for Polymod -->
