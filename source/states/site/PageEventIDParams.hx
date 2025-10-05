@@ -1,23 +1,11 @@
 package states.site;
 
-import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
-
-class PageEventID
-{
-	public var id:String;
-	public var params:PageEventIDParams;
-
-	public function new(id:String, params:PageEventIDParams)
-	{
-		this.id = id;
-		this.params = params;
-	}
-}
+import utils.Position;
 
 typedef PageEventIDParams = {
 	// general
-	?general_position:FlxPoint,
+	?general_position:Position,
 
 	// text id
 	?text_content:String,
@@ -31,5 +19,5 @@ typedef PageEventIDParams = {
 	?img_graphicDimensions:Array<Int>,
 	?img_graphicColor:FlxColor,
 
-	?img_scale:FlxPoint,
+	?img_scale:Position,
 }

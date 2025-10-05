@@ -3,13 +3,13 @@ package modding;
 import flixel.FlxG;
 import modding.events.*;
 import modding.events.FocusEvent;
+// import modding.fixes.FlxPointClass;
 import modding.modules.*;
 import polymod.Polymod;
 import polymod.format.ParseRules;
 import polymod.fs.ZipFileSystem;
 import states.*;
 import states.site.*;
-import states.site.PageEventIdentifiers.PageEventID;
 import utils.StateUtils;
 #if sys
 import sys.FileSystem;
@@ -51,7 +51,10 @@ class PolymodHandler
 		addImports();
 	}
 
-	public static function addImports() {}
+	public static function addImports()
+	{
+		// Polymod.addImportAlias('flixel.math.FlxPoint', FlxPointClass);
+	}
 
 	public static function buildParseRules():polymod.format.ParseRules
 	{

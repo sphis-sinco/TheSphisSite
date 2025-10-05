@@ -6,6 +6,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import utils.Position;
 
 class Page extends ModuleState
 {
@@ -17,11 +18,16 @@ class Page extends ModuleState
 	{
 		super.create();
 
+		if (objects == null)
+			objects = new FlxTypedGroup<FlxBasic>();
+		add(objects);
+
 		refresh();
 	}
 
 	public function refresh()
 	{
+
 		if (objects == null)
 			objects = new FlxTypedGroup<FlxBasic>();
 
@@ -33,7 +39,9 @@ class Page extends ModuleState
 
 		for (content in pageContent)
 		{
-			var position = content.event.params.general_position ?? new FlxPoint();
+			var position = content.event.params.general_position ?? new Position(0, 0);
+
+			trace('Found content event: "${content.event.id}" with id "${content.id}". Parsing...');
 
 			if (content.event.id == 'text')
 			{
@@ -43,6 +51,7 @@ class Page extends ModuleState
 				newObject.size = content.event.params.text_size ?? 16;
 				newObject.color = content.event.params.text_color ?? FlxColor.BLACK;
 
+				trace('Parsed Text Event: ' + content.id);
 				objects.add(newObject);
 			}
 
@@ -62,6 +71,7 @@ class Page extends ModuleState
 
 				newObject.scale.set(content.event.params.img_scale.x, content.event.params.img_scale.y);
 
+				trace('Parsed Image Event: ' + content.id);
 				objects.add(newObject);
 			}
 		}

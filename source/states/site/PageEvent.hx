@@ -1,6 +1,6 @@
 package states.site;
 
-import states.site.PageEventIdentifiers.PageEventID;
+import states.site.PageEventID;
 
 class PageEvent
 {
