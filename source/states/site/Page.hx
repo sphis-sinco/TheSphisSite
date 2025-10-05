@@ -18,7 +18,7 @@ class Page extends ModuleState
 	{
 		super(id);
 
-		trace('Switched to Page: ' + id);
+		trace('Switched to Page: $id');
 	}
 
 	public function refresh()
