@@ -1,8 +1,8 @@
-package states;
+package sphis.site.states;
 
 import flixel.FlxState;
-import modding.events.*;
-import modding.modules.ModuleHandler;
+import sphis.site.modding.events.*;
+import sphis.site.modding.modules.ModuleHandler;
 
 class ModuleState extends FlxState
 {

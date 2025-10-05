@@ -1,15 +1,15 @@
 import flixel.FlxG;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import modding.events.CreateEvent;
-import modding.events.UpdateEvent;
-import modding.modules.Module;
-import states.site.BlankPage;
-import states.site.Index;
-import states.site.Page;
-import states.site.PageEvent;
-import states.site.PageEventID;
-import utils.Position;
+import sphis.site.modding.events.CreateEvent;
+import sphis.site.modding.events.UpdateEvent;
+import sphis.site.modding.modules.Module;
+import sphis.site.states.site.BlankPage;
+import sphis.site.states.site.Index;
+import sphis.site.states.site.Page;
+import sphis.site.states.site.PageEvent;
+import sphis.site.states.site.PageEventID;
+import sphis.site.utils.Position;
 
 class DummyPage extends Module
 {

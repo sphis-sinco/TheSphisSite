@@ -1,16 +1,18 @@
-package states.site;
+package sphis.site.states.site;
 
-class Index extends Page
+class BlankPage extends Page
 {
-	public static var instance:Index;
+	public static var instance:BlankPage;
 
-	override public function new()
+	override public function new(id:String)
 	{
-		super('index');
+		super(id);
+
 		if (instance != null)
 			instance = null;
 		instance = this;
 	}
+
 	override function create()
 	{
 		super.create();

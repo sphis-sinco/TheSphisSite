@@ -1,17 +1,17 @@
-package modding;
+package sphis.site.modding;
 
 import flixel.FlxG;
 import lime.app.Application;
-import modding.events.*;
-import modding.events.FocusEvent;
-// import modding.fixes.FlxPointClass;
-import modding.modules.*;
 import polymod.Polymod;
 import polymod.format.ParseRules;
 import polymod.fs.ZipFileSystem;
-import states.*;
-import states.site.*;
-import utils.StateUtils;
+import sphis.site.modding.events.*;
+import sphis.site.modding.events.FocusEvent;
+// import sphis.site.modding.fixes.FlxPointClass;
+import sphis.site.modding.modules.*;
+import sphis.site.states.*;
+import sphis.site.states.site.*;
+import sphis.site.utils.StateUtils;
 #if sys
 import sys.FileSystem;
 #end
@@ -33,11 +33,11 @@ class PolymodHandler
 		});
 		var preStateSwitch = function() ModuleHandler.callEvent(module ->
 		{
-			module.onStateSwitchPre(new StateSwitchEvent(StateUtils.getCurrentState()));
+			module.onStateSwitchPre(new StateSwitchEvent(Statesphis.site.utils.getCurrentState()));
 		});
 		var postStateSwitch = function() ModuleHandler.callEvent(module ->
 		{
-			module.onStateSwitchPost(new StateSwitchEvent(StateUtils.getCurrentState()));
+			module.onStateSwitchPost(new StateSwitchEvent(Statesphis.site.utils.getCurrentState()));
 		});
 
 		if (!FlxG.signals.focusGained.has(() -> focusGained))
@@ -54,9 +54,9 @@ class PolymodHandler
 
 	public static function addImports()
 	{
-		Polymod.addImportAlias('states.site.BlankPage', BlankPage);
-		Polymod.addImportAlias('states.site.Index', Index);
-		Polymod.addImportAlias('states.site.BlankState', BlankState);
+		Polymod.addImportAlias('sphis.site.states.site.BlankPage', BlankPage);
+		Polymod.addImportAlias('sphis.site.states.site.Index', Index);
+		Polymod.addImportAlias('sphis.site.states.site.BlankState', BlankState);
 	}
 
 	public static function buildParseRules():polymod.format.ParseRules

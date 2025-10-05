@@ -1,4 +1,4 @@
-package utils;
+package sphis.site.utils;
 
 class Position
 {

@@ -1,6 +1,6 @@
-package modding.modules;
+package sphis.site.modding.modules;
 
-import modding.events.StateEvent;
+import sphis.site.modding.events.StateEvent;
 
 class ModuleEvent extends StateEvent
 {
@@ -12,7 +12,7 @@ class ModuleEvent extends StateEvent
 
 		this.module = module;
 	}
-        
+
 	override public function toString():String
 		return 'ModuleEvent(module: $module, state: $state)';
 }

@@ -1,4 +1,4 @@
-package macro;
+package sphis.site.macro;
 
 #if !display
 #if macro

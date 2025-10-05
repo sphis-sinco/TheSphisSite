@@ -76,7 +76,7 @@
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
-	<haxeflag name="--macro" value="addMetadata('@:build(macro.FlxMacro.buildFlxBasic())', 'flixel.FlxBasic')" />
+	<haxeflag name="--macro" value="addMetadata('@:build(sphis.site.macro.FlxMacro.buildFlxBasic())', 'flixel.FlxBasic')" />
 
 	<!--Remove the legacy health system-->
 	<haxedef name="FLX_NO_HEALTH" />

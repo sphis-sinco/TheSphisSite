@@ -1,4 +1,4 @@
-package modding.events;
+package sphis.site.modding.events;
 
 class FocusEvent
 {

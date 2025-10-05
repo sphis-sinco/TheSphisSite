@@ -1,4 +1,4 @@
-package modding.modules;
+package sphis.site.modding.modules;
 
 import polymod.hscript.HScriptedClass;
 

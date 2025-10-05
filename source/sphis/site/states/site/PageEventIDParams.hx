@@ -1,7 +1,7 @@
-package states.site;
+package sphis.site.states.site;
 
 import flixel.util.FlxColor;
-import utils.Position;
+import sphis.site.utils.Position;
 
 typedef PageEventIDParams =
 {

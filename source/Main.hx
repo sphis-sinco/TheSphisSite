@@ -2,7 +2,7 @@ package;
 
 import flixel.FlxGame;
 import openfl.display.Sprite;
-import states.InitState;
+import sphis.site.states.InitState;
 
 class Main extends Sprite
 {

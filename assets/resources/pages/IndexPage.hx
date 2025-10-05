@@ -1,11 +1,11 @@
 import flixel.FlxG;
 import flixel.util.FlxColor;
-import modding.events.CreateEvent;
-import modding.modules.Module;
-import states.site.Index;
-import states.site.PageEvent;
-import states.site.PageEventID;
-import utils.Position;
+import sphis.site.modding.events.CreateEvent;
+import sphis.site.modding.modules.Module;
+import sphis.site.states.site.Index;
+import sphis.site.states.site.PageEvent;
+import sphis.site.states.site.PageEventID;
+import sphis.site.utils.Position;
 
 class IndexPage extends Module
 {

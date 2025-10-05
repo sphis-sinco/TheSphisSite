@@ -1,6 +1,6 @@
-package states.site;
+package sphis.site.states.site;
 
-import states.site.PageEventID;
+import sphis.site.states.site.PageEventID;
 
 class PageEvent
 {

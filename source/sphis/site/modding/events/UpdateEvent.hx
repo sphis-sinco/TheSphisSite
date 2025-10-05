@@ -1,7 +1,7 @@
-package modding.events;
+package sphis.site.modding.events;
 
-import modding.modules.Module;
-import modding.modules.ModuleEvent;
+import sphis.site.modding.modules.Module;
+import sphis.site.modding.modules.ModuleEvent;
 
 class UpdateEvent extends ModuleEvent
 {

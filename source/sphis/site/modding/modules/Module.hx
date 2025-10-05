@@ -1,10 +1,10 @@
-package modding.modules;
+package sphis.site.modding.modules;
 
 import flixel.util.FlxDestroyUtil.IFlxDestroyable;
-import modding.events.CreateEvent;
-import modding.events.FocusEvent;
-import modding.events.StateSwitchEvent;
-import modding.events.UpdateEvent;
+import sphis.site.modding.events.CreateEvent;
+import sphis.site.modding.events.FocusEvent;
+import sphis.site.modding.events.StateSwitchEvent;
+import sphis.site.modding.events.UpdateEvent;
 
 class Module implements IFlxDestroyable
 {

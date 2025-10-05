@@ -1,11 +1,11 @@
 import flixel.FlxG;
-import modding.PolymodHandler;
-import modding.events.UpdateEvent;
-import modding.modules.Module;
+import sphis.site.modding.PolymodHandler;
+import sphis.site.modding.events.UpdateEvent;
+import sphis.site.modding.modules.Module;
 
 class Reload extends Module
 {
-        public var canReload:Bool = true;
+	public var canReload:Bool = true;
 
 	override public function new()
 	{
@@ -16,9 +16,9 @@ class Reload extends Module
 	{
 		super.onUpdate(event);
 
-                if (canReload && (FlxG.keys.justReleased.F4 || FlxG.keys.pressed.SHIFT && FlxG.keys.justReleased.FOUR))
-                {
-                        PolymodHandler.forceReloadAssets();
-                }
+		if (canReload && (FlxG.keys.justReleased.F4 || FlxG.keys.pressed.SHIFT && FlxG.keys.justReleased.FOUR))
+		{
+			PolymodHandler.forceReloadAssets();
+		}
 	}
 }

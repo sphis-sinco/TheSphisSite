@@ -1,4 +1,4 @@
-package states;
+package sphis.site.states;
 
 class BlankState extends ModuleState
 {

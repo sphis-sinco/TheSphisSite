@@ -1,4 +1,4 @@
-package states.site;
+package sphis.site.states.site;
 
 import flixel.FlxBasic;
 import flixel.FlxG;
@@ -7,7 +7,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import utils.Position;
+import sphis.site.utils.Position;
 
 class Page extends ModuleState
 {

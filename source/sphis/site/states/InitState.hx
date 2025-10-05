@@ -1,8 +1,8 @@
-package states;
+package sphis.site.states;
 
 import flixel.FlxG;
 import flixel.FlxState;
-import modding.PolymodHandler;
+import sphis.site.modding.PolymodHandler;
 
 class InitState extends FlxState
 {

@@ -1,4 +1,4 @@
-package modding.events;
+package sphis.site.modding.events;
 
 class StateEvent
 {
@@ -8,7 +8,7 @@ class StateEvent
 	{
 		this.state = state;
 	}
-        
+
 	public function toString():String
 		return 'StateEvent(state: $state)';
 }

@@ -807,7 +807,7 @@ class Polymod
 
 	/**
 	 * Provide a list of assets included in or modified by the mod(s)
-	 * @param type the type of asset you want (lime.utils.PolymodAssetType)
+	 * @param type the type of asset you want (lime.sphis.site.utils.PolymodAssetType)
 	 * @return Array<String> a list of assets of the matching type
 	 */
 	public static function listModFiles(type:PolymodAssetType = null):Array<String>

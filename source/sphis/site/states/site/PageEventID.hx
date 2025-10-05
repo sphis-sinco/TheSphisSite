@@ -1,4 +1,4 @@
-package states.site;
+package sphis.site.states.site;
 
 class PageEventID
 {
