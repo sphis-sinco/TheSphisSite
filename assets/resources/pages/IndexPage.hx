@@ -1,12 +1,8 @@
 import flixel.FlxG;
-import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import modding.events.CreateEvent;
-import modding.events.UpdateEvent;
 import modding.modules.Module;
-import states.site.BlankPage;
 import states.site.Index;
-import states.site.Page;
 import states.site.PageEvent;
 import states.site.PageEventID;
 import utils.Position;
@@ -22,34 +18,55 @@ class IndexPage extends Module
 	{
 		super.onCreate(event);
 
-		if (event.state == 'index')
-		{
-			Index.instance.pageContent = [
-				new PageEvent(new PageEventID(PageEventID.image, {
-					general_position: new Position(0, 0),
+		if (event.state != 'index')
+			return;
 
-					img_makeGraphic: true,
-					img_graphicColor: FlxColor.WHITE,
-					img_graphicDimensions: [FlxG.width, FlxG.height],
-				}), 'backdrop'),
-				new PageEvent(new PageEventID(PageEventID.text, {
-					general_position: new Position(10, 10),
+		Index.instance.pageContent = [
+			new PageEvent(new PageEventID(PageEventID.image, {
+				general_position: new Position(0, 0),
 
-					text_content: "Hello world!\nWelcome to The Sinco Site!",
-					text_size: 32,
-					text_color: FlxColor.BLACK,
-				}), 'hello-world'),
-				new PageEvent(new PageEventID(PageEventID.url_text, {
-					general_position: new Position(10, 100),
+				img_makeGraphic: true,
+				img_graphicColor: FlxColor.WHITE,
+				img_graphicDimensions: [FlxG.width, FlxG.height],
+			}), 'backdrop'),
 
-					text_content: "News",
-					text_size: 16,
-					text_color: FlxColor.BLACK,
+			new PageEvent(new PageEventID(PageEventID.text, {
+				general_position: new Position(10, 10),
 
-					url_obj_pressed_callback: () -> {},
-					url_text_hover_color: FlxColor.LIME
-				}), 'news-url'),
-			];
-		}
+				text_content: "Hello world!\nWelcome to The Sinco Site!",
+				text_size: 32,
+				text_color: FlxColor.BLACK,
+			}), 'hello-world'),
+
+			new PageEvent(new PageEventID(PageEventID.image, {
+				general_position: new Position(0, 100),
+
+				img_makeGraphic: true,
+				img_graphicColor: FlxColor.GRAY,
+				img_graphicDimensions: [FlxG.width, 16],
+			}), 'splitter'),
+
+			new PageEvent(new PageEventID(PageEventID.url_text, {
+				general_position: new Position(10, 130),
+
+				text_content: "News",
+				text_size: 24,
+				text_color: FlxColor.BLACK,
+
+				url_obj_pressed_callback: () -> {},
+				url_text_hover_color: FlxColor.LIME
+			}), 'news-url'),
+
+			new PageEvent(new PageEventID(PageEventID.url_text, {
+				general_position: new Position(10, 180),
+
+				text_content: "Projects",
+				text_size: 24,
+				text_color: FlxColor.BLACK,
+
+				url_obj_pressed_callback: () -> {},
+				url_text_hover_color: FlxColor.LIME
+			}), 'projects-url'),
+		];
 	}
 }
