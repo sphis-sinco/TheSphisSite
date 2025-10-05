@@ -47,6 +47,21 @@ class PreferencesPage extends Module
 				},
 				url_text_hover_color: FlxColor.LIME
 			}), 'back-url'),
+
+			new PageEvent(new PageEventID(PageEventID.url_text, {
+				general_position: new Position(10, 130 + 50),
+
+				text_content: "Dark mode: " + Preferences.darkMode,
+				text_size: 24,
+				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
+
+				url_obj_pressed_callback: () ->
+				{
+					Preferences.darkMode = !Preferences.darkMode;
+					FlxG.switchState(() -> new BlankPage('preferences'));
+				},
+				url_text_hover_color: FlxColor.LIME
+			}), 'dark-mode-toggle'),
 		];
 	}
 
@@ -56,16 +71,7 @@ class PreferencesPage extends Module
 	{
 		super.onUpdate(event);
 
-		if (event.state != 'preferences')
-			return;
-
-		if (FlxG.keys.justReleased.T)
-		{
-			Preferences.darkMode = !Preferences.darkMode;
-			FlxG.switchState(() -> new BlankPage('preferences'));
-		}
-
-		if (performedPostCreateFunctions)
+		if (event.state != 'preferences' || performedPostCreateFunctions)
 			return;
 
 		performedPostCreateFunctions = true;
