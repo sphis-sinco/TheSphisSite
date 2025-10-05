@@ -41,7 +41,10 @@ class IndexPage extends Module
 				text_size: 24,
 				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 
-				url_obj_pressed_callback: () -> {},
+				url_obj_pressed_callback: () ->
+				{
+					FlxG.switchState(() -> new BlankPage('news'));
+				},
 				url_text_hover_color: FlxColor.LIME
 			}), 'news-url'),
 

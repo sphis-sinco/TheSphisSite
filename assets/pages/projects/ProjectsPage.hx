@@ -72,7 +72,7 @@ class ProjectsPage extends Module
 			{
 				i--;
 				addProject('Bloat ' + (starti - i), 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', BLOAT);
-				trace('Bloated ' + (starti - i) + '/' + starti);
+				trace('Projects Bloated ' + (starti - i) + '/' + starti);
 			}
 		}
 
