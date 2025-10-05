@@ -20,9 +20,9 @@ class Page extends ModuleState
 		super(id);
 
 		#if sys
-		Sys.println('\n---------------- Switched to Page: $id ----------------\n');
+		Sys.println('\n---------------- Switched to Page: "$id" ----------------\n');
 		#else
-		trace('\n\n---------------- Switched to Page: $id ----------------\n');
+		trace('\n\n---------------- Switched to Page: "$id" ----------------\n');
 		#end
 	}
 
