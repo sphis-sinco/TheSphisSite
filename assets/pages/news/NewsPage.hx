@@ -10,10 +10,8 @@ import sphis.site.modding.events.UpdateEvent;
 import sphis.site.modding.modules.Module;
 import sphis.site.modding.modules.ModuleHandler;
 import sphis.site.states.site.BlankPage;
-import sphis.site.states.site.Index;
 import sphis.site.states.site.PageEvent;
 import sphis.site.states.site.PageEventID;
-import sphis.site.utils.PathUtils;
 import sphis.site.utils.Position;
 
 using StringTools;
@@ -26,6 +24,8 @@ class NewsPage extends Module
 
 		news = [];
 		var doBloat = false;
+
+		addNews('Blog #1 (10/5/2025)', 'blog1');
 
 		if (doBloat)
 		{
