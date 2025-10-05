@@ -8,6 +8,7 @@ class PageEventID
 	public static var url_image:String = 'url_image';
 	public static var image:String = 'image';
 
+	// public static var checkbox:String = 'checkbox';
 	public var id:String;
 	public var params:PageEventIDParams;
 

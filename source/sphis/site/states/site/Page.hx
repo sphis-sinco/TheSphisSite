@@ -123,6 +123,9 @@ class Page extends ModuleState
 				case 'image', 'url_image':
 					parseImage(content.id, position);
 
+				// case 'checkbox':
+				// 	parseCheckbox(content.id, position);
+
 				default:
 					trace('Content event missing a parse: ${content.event.id}');
 			}

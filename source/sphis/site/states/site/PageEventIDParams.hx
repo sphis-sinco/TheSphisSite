@@ -31,4 +31,12 @@ typedef PageEventIDParams =
 	// url_image id
 	?url_image_graphic_hover_color:FlxColor,
 	?url_image_hover_scale:Position,
+	// checkbox id
+	/*
+		?checkbox_statusCallback:Void->Bool,
+
+		?checkbox_assetPathPrefix:String,
+		?checkbox_onPathSuffix:String,
+		?checkbox_offPathSuffix:String,
+	 */
 }

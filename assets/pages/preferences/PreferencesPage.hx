@@ -9,6 +9,7 @@ import sphis.site.states.site.BlankPage;
 import sphis.site.states.site.Index;
 import sphis.site.states.site.PageEvent;
 import sphis.site.states.site.PageEventID;
+import sphis.site.utils.PathUtils;
 import sphis.site.utils.Position;
 
 class PreferencesPage extends Module
@@ -49,7 +50,7 @@ class PreferencesPage extends Module
 			}), 'back-url'),
 
 			new PageEvent(new PageEventID(PageEventID.url_text, {
-				general_position: new Position(10, 130 + 50),
+				general_position: new Position(/* 32 + 50 */ 10, 130 + 50),
 
 				text_content: "Dark mode: " + Preferences.darkMode,
 				text_size: 24,
@@ -62,6 +63,14 @@ class PreferencesPage extends Module
 				},
 				url_text_hover_color: FlxColor.LIME
 			}), 'dark-mode-toggle'),
+			/*
+				new PageEvent(new PageEventID(PageEventID.image, {
+					general_position: new Position(32, 130 + 50),
+
+					img_assetPath: PathUtils.getImage('pages/preferences/checkbox-' + ((Preferences.darkMode) ? 'on' : 'off')),
+					img_scale: new Position(2, 2),
+				}), 'dark-mode-toggle-checkbox'),
+			 */
 		];
 	}
 
