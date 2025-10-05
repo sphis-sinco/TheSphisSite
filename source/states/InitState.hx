@@ -3,7 +3,7 @@ package states;
 import flixel.FlxG;
 import flixel.FlxState;
 import modding.PolymodHandler;
-import states.play.PlayState;
+// import states.play.PlayState;
 
 class InitState extends FlxState
 {
@@ -13,6 +13,6 @@ class InitState extends FlxState
 
 		PolymodHandler.forceReloadAssets();
 
-		FlxG.switchState(() -> new PlayState());
+		// FlxG.switchState(() -> new PlayState());
 	}
 }
