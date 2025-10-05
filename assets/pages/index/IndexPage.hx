@@ -80,6 +80,11 @@ class IndexPage extends Module
 
 		performedPostCreateFunctions = true;
 
+		if (Index.instance.getObject('hello-world') != null)
+		{
+			Index.instance.getObject('hello-world').text += '\n(Home Page)';
+		}
+
 		if (Index.instance.getObject('version') != null)
 		{
 			Index.instance.getObject('version').fieldWidth = FlxG.width;
