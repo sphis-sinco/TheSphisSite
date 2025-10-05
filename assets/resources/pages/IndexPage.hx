@@ -25,28 +25,30 @@ class IndexPage extends Module
 		if (event.state == 'index')
 		{
 			Index.instance.pageContent = [
-				new PageEvent(new PageEventID(PageEventID.url_image, {
-					general_position: new Position(640, 0),
+				new PageEvent(new PageEventID(PageEventID.image, {
+					general_position: new Position(0, 0),
 
 					img_makeGraphic: true,
 					img_graphicColor: FlxColor.WHITE,
-					img_graphicDimensions: [640, FlxG.height],
-
-					url_image_graphic_hover_color: FlxColor.RED,
+					img_graphicDimensions: [FlxG.width, FlxG.height],
 				}), 'backdrop'),
-				new PageEvent(new PageEventID(PageEventID.url_text, {
+				new PageEvent(new PageEventID(PageEventID.text, {
 					general_position: new Position(10, 10),
 
-					text_content: "Hello world!",
+					text_content: "Hello world!\nWelcome to The Sinco Site!",
 					text_size: 32,
-					text_color: FlxColor.WHITE,
+					text_color: FlxColor.BLACK,
+				}), 'hello-world'),
+				new PageEvent(new PageEventID(PageEventID.url_text, {
+					general_position: new Position(10, 80),
 
-					url_text_hover_color: FlxColor.BLUE,
-					url_obj_pressed_callback: () ->
-					{
-						FlxG.switchState(() -> new BlankPage('dummy-page'));
-					},
-				}), 'hi'),
+					text_content: "News",
+					text_size: 16,
+					text_color: FlxColor.BLACK,
+
+					url_obj_pressed_callback: () -> {},
+					url_text_hover_color: FlxColor.LIME
+				}), 'hello-world'),
 			];
 		}
 	}
