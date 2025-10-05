@@ -10,4 +10,9 @@ class Position
 		this.x = x;
 		this.y = y;
 	}
+
+	public function clone()
+	{
+		return new Position(x, y);
+	}
 }
