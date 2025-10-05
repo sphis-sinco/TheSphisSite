@@ -44,7 +44,7 @@ class PreferencesPage extends Module
 
 		if (BlankPage.instance.getObject('hello-world') != null)
 		{
-			BlankPage.instance.getObject('hello-world').text += '\nPreferences Page';
+			BlankPage.instance.getObject('hello-world').text += '\n(Preferences Page)';
 		}
 
 		if (BlankPage.instance.getObject('version') != null)
