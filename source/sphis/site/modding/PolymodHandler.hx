@@ -1,10 +1,13 @@
 package sphis.site.modding;
 
 import flixel.FlxG;
+import flixel.input.keyboard.FlxKey;
 import lime.app.Application;
 import polymod.Polymod;
 import polymod.format.ParseRules;
 import polymod.fs.ZipFileSystem;
+import sphis.site.modding.cheats.FlxCameraFollowStyleCheat;
+import sphis.site.modding.cheats.FlxKeyCheat;
 import sphis.site.modding.events.*;
 import sphis.site.modding.events.FocusEvent;
 // import sphis.site.modding.fixes.FlxPointClass;
@@ -56,6 +59,9 @@ class PolymodHandler
 
 	public static function addImports()
 	{
+		Polymod.addImportAlias('flixel.FlxCamera.FlxCameraFollowStyle', FlxCameraFollowStyleCheat);
+		Polymod.addImportAlias('flixel.input.keyboard.FlxKey', FlxKeyCheat);
+
 		Polymod.addImportAlias('sphis.site.utils.GitUtils', GitUtils);
 		Polymod.addImportAlias('sphis.site.utils.PathUtils', PathUtils);
 

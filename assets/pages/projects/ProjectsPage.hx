@@ -1,6 +1,10 @@
 import flixel.FlxG;
+import flixel.FlxObject;
+import flixel.input.keyboard.FlxKey;
+import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import sphis.site.Preferences;
+import sphis.site.modding.cheats.FlxCameraFollowStyleCheat;
 import sphis.site.modding.events.CreateEvent;
 import sphis.site.modding.events.UpdateEvent;
 import sphis.site.modding.modules.Module;
@@ -21,6 +25,7 @@ class ProjectsPage extends Module
 		super('projects-page');
 
 		projects = [];
+		var doBloat = false;
 
 		var BLANK = '';
 		var BLOAT = 'Bloat';
@@ -58,16 +63,18 @@ class ProjectsPage extends Module
 		addProject('FNF vs Guy (CONCEPT EDITION)', 'https://gamebanana.com/mods/492398', FNF_MOD_PSYCH);
 		addProject('Pico Pico (Yellow Mix)', 'https://gamebanana.com/mods/555461', FNF_MOD_VSLICE);
 
-		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
-		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
-		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
-		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
-		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
-		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
-		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
-		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
-		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
-		addProject('Bloat ' + FlxG.random.int(), '', BLOAT);
+		if (doBloat)
+			projects = [];
+		{
+			var starti = 255;
+			var i = starti;
+			while (i > 0)
+			{
+				i--;
+				addProject('Bloat ' + (starti - i), 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', BLOAT);
+				trace('Bloated ' + (starti - i) + '/' + starti);
+			}
+		}
 
 		addProject('', '', BLANK);
 		addProject('', '', BLANK);
@@ -106,6 +113,8 @@ class ProjectsPage extends Module
 	}
 
 	public var max_x:Float = 0;
+
+	public var camFollow:FlxObject;
 
 	override function onCreate(event:CreateEvent)
 	{
@@ -151,13 +160,21 @@ class ProjectsPage extends Module
 
 			if (position.y >= FlxG.height)
 			{
-				position.x += text_content.length * 24;
+				position.x += (new FlxText(0, 0, 0, text_content).width * 5);
 				position.y = 130;
 			}
 
 			if (position.x > max_x)
+			{
+				trace('max_x transforming from ' + max_x + ' to ' + position.x);
 				max_x = position.x;
+			}
 		}
+
+		camFollow = new FlxObject(640, 360);
+		BlankPage.instance.add(camFollow);
+
+		FlxG.camera.follow(camFollow, FlxCameraFollowStyleCheat.LOCKON, .5);
 	}
 
 	public var performedPostCreateFunctions:Bool = false;
@@ -166,18 +183,41 @@ class ProjectsPage extends Module
 	{
 		super.onUpdate(event);
 
-		if (event.state != 'projects' || performedPostCreateFunctions)
+		if (event.state != 'projects')
+			return;
+
+		if (max_x > 1280)
+		{
+			if (FlxG.keys.anyPressed([FlxKey.A, FlxKey.LEFT]))
+				camFollow.x -= 32;
+			if (FlxG.keys.anyPressed([FlxKey.D, FlxKey.RIGHT]))
+				camFollow.x += 32;
+
+			if (camFollow.x < 0)
+				camFollow.x = 0;
+			if (camFollow.x >= max_x)
+				camFollow.x = max_x;
+		}
+
+		if (performedPostCreateFunctions)
 			return;
 
 		performedPostCreateFunctions = true;
 
+		if (BlankPage.instance.getObject('backdrop') != null)
+			BlankPage.instance.getObject('backdrop').scrollFactor.set();
+		if (BlankPage.instance.getObject('splitter') != null)
+			BlankPage.instance.getObject('splitter').scrollFactor.set();
+
 		if (BlankPage.instance.getObject('hello-world') != null)
 		{
-			BlankPage.instance.getObject('hello-world').text += '\n(Projects Page)';
+			BlankPage.instance.getObject('hello-world').scrollFactor.set();
+			BlankPage.instance.getObject('hello-world').text += '\n(Projects Page)' + ((max_x > 1280) ? ' (LEFT/RIGHT / A/D to scroll)' : '');
 		}
 
 		if (BlankPage.instance.getObject('version') != null)
 		{
+			BlankPage.instance.getObject('version').scrollFactor.set();
 			BlankPage.instance.getObject('version').fieldWidth = FlxG.width;
 			BlankPage.instance.getObject('version').alignment = 'right';
 		}
