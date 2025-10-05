@@ -26,6 +26,12 @@ class Prebuild
 		log('-------------------- PREBUILD LOGS --------------------', false);
 
 		#if sys
+		log('System platform', true);
+		#else
+		log('Non-system platform', true);
+		#end
+
+		#if sys
 		var start:Float = Sys.time();
 
 		saveBuildTime();
@@ -34,9 +40,23 @@ class Prebuild
 		var duration:Float = end - start;
 		#end
 
-		log(#if debug 'DEBUG BUILD' #else 'RELEASE BUILD' #end, true);
-		log(#if watch 'WATCH BUILD' #else 'NON-WATCH BUILD' #end, true);
-		log(#if (watchassets) 'WATCH-ASSETS BUILD' #else 'NON-WATCH-ASSETS BUILD' #end, true);
+		#if debug
+		log('Debug build', true);
+		#else
+		log('Non-debug build', true);
+		#end
+
+		#if watch
+		log('Watch build', true);
+		#else
+		log('Non-watch build', true);
+		#end
+
+		#if watchassets
+		log('Watch-assets build', true);
+		#else
+		log('Non-watch-assets build', true);
+		#end
 
 		log('------------------------ MACROS -----------------------', false);
 	}
