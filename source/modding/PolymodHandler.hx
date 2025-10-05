@@ -152,7 +152,6 @@ class PolymodHandler
 			modFileSystem = buildFileSystem();
 
 		// Forcibly clear scripts so that scripts can be edited.
-		PageHandler.destroyPages();
 		ModuleHandler.destroyModules();
 		Polymod.clearScripts();
 
@@ -160,7 +159,6 @@ class PolymodHandler
 
 		loadMods(getAllModIds());
 		ModuleHandler.loadModules();
-		PageHandler.loadPages();
 
 		if (FlxG.state != null)
 			FlxG.resetState();

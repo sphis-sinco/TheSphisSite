@@ -3,9 +3,16 @@ package states.site;
 import flixel.util.FlxColor;
 import utils.Position;
 
-typedef PageEventIDParams = {
+typedef PageEventIDParams =
+{
 	// general
 	?general_position:Position,
+
+	// url_ id's
+	?url_obj_pressed_callback:Void->Void,
+
+	// url_text id
+	?url_text_hover_color:FlxColor,
 
 	// text id
 	?text_content:String,

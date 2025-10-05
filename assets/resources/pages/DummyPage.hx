@@ -32,27 +32,20 @@ class DummyPage extends Module
 					img_graphicColor: FlxColor.BLACK,
 					img_graphicDimensions: [FlxG.width, FlxG.height]
 				}), 'backdrop'),
-				new PageEvent(new PageEventID(PageEventID.text, {
+				new PageEvent(new PageEventID(PageEventID.url_text, {
 					general_position: new Position(10, 10),
 
 					text_content: "Hello world!",
 					text_size: 32,
-					text_color: FlxColor.WHITE
+					text_color: FlxColor.WHITE,
+
+					url_text_hover_color: FlxColor.BLUE,
+					url_obj_pressed_callback: () ->
+					{
+						FlxG.switchState(() -> new Index());
+					},
 				}), 'hi'),
 			];
-		}
-	}
-	override function onUpdate(event:UpdateEvent)
-	{
-		super.onUpdate(event);
-
-		if (event.state == 'dummy-page')
-		{
-			BlankPage.instance.getObject('hi').color = (FlxG.mouse.overlaps(BlankPage.instance.getObject('hi')) ? FlxColor.BLUE : FlxColor.WHITE);
-			if (FlxG.mouse.justReleased && FlxG.mouse.overlaps(BlankPage.instance.getObject('hi')))
-			{
-				FlxG.switchState(() -> new Index());
-			}
 		}
 	}
 }

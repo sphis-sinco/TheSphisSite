@@ -32,27 +32,20 @@ class IndexPage extends Module
 					img_graphicColor: FlxColor.WHITE,
 					img_graphicDimensions: [FlxG.width, FlxG.height]
 				}), 'backdrop'),
-				new PageEvent(new PageEventID(PageEventID.text, {
+				new PageEvent(new PageEventID(PageEventID.url_text, {
 					general_position: new Position(10, 10),
 
 					text_content: "Hello world!",
 					text_size: 32,
-					text_color: FlxColor.BLACK
+					text_color: FlxColor.BLACK,
+
+					url_text_hover_color: FlxColor.BLUE,
+					url_obj_pressed_callback: () ->
+					{
+						FlxG.switchState(() -> new BlankPage('dummy-page'));
+					},
 				}), 'hi'),
 			];
-		}
-	}
-	override function onUpdate(event:UpdateEvent)
-	{
-		super.onUpdate(event);
-
-		if (event.state == 'index')
-		{
-			Index.instance.getObject('hi').color = (FlxG.mouse.overlaps(Index.instance.getObject('hi')) ? FlxColor.BLUE : FlxColor.BLACK);
-			if (FlxG.mouse.justReleased && FlxG.mouse.overlaps(Index.instance.getObject('hi')))
-			{
-				FlxG.switchState(() -> new BlankPage('dummy-page'));
-			}
 		}
 	}
 }

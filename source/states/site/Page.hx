@@ -1,6 +1,7 @@
 package states.site;
 
 import flixel.FlxBasic;
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
@@ -18,7 +19,11 @@ class Page extends ModuleState
 	{
 		super(id);
 
-		trace('Switched to Page: $id');
+		#if sys
+		Sys.println('\n---------------- Switched to Page: $id ----------------\n');
+		#else
+		trace('\n\n---------------- Switched to Page: $id ----------------\n');
+		#end
 	}
 
 	public function refresh()
@@ -38,21 +43,41 @@ class Page extends ModuleState
 
 			trace('Found content event: "${content.event.id}" with id "${content.id}". Parsing...');
 
-			if (content.event.id == 'text')
+			if (content.event.id == 'text' || content.event.id == 'url_text')
 			{
 				var newObject:FlxText = new FlxText(position.x, position.y);
 
+				newObject.string_ID = content.id;
 				newObject.text = content.event.params.text_content ?? "";
 				newObject.size = content.event.params.text_size ?? 16;
 				newObject.color = content.event.params.text_color ?? FlxColor.WHITE;
 
-				trace('Parsed Text Event: ' + content.id);
+				if (content.event.id == 'url_text')
+				{
+					newObject.update_callback = () ->
+					{
+						newObject.color = (FlxG.mouse.overlaps(newObject) ? (getObjectContent(newObject.string_ID)
+							.event.params.url_text_hover_color) : (getObjectContent(newObject.string_ID).event.params.text_color ?? FlxColor.WHITE));
+						if (FlxG.mouse.justReleased && FlxG.mouse.overlaps(newObject))
+						{
+							if (content.event.params.url_obj_pressed_callback != null)
+								content.event.params.url_obj_pressed_callback();
+						}
+					}
+
+					trace('Parsed URL_Text Event: ' + content.id);
+				}
+				else
+					trace('Parsed Text Event: ' + content.id);
+
 				objects.add(newObject);
 			}
 
 			if (content.event.id == 'image')
 			{
 				var newObject:FlxSprite = new FlxSprite(position.x, position.y);
+
+				newObject.string_ID = content.id;
 
 				if (content.event.params.img_makeGraphic)
 				{
@@ -88,6 +113,22 @@ class Page extends ModuleState
 
 		return ((indexOfId >= 0) ? objects.members[indexOfId] : null);
 	}
+	public function getObjectContent(id:String):PageEvent
+	{
+		var indexOfId = -1;
+
+		var index = 0;
+		for (content in pageContent)
+		{
+			if (content.id == id)
+				indexOfId = index;
+
+			index++;
+		}
+
+		return ((indexOfId >= 0) ? pageContent[indexOfId] : new PageEvent(null, null));
+	}
+
 	override public function create()
 	{
 		super.create();
@@ -102,5 +143,10 @@ class Page extends ModuleState
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		for (object in objects)
+		{
+			if (object.update_callback != null)
+				object.update_callback();
+		}
 	}
 }
