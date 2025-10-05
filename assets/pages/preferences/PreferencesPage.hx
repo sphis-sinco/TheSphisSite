@@ -41,5 +41,16 @@ class PreferencesPage extends Module
 			return;
 
 		performedPostCreateFunctions = true;
+
+		if (BlankPage.instance.getObject('hello-world') != null)
+		{
+			BlankPage.instance.getObject('hello-world').text += '\nPreferences Page';
+		}
+
+		if (BlankPage.instance.getObject('version') != null)
+		{
+			BlankPage.instance.getObject('version').fieldWidth = FlxG.width;
+			BlankPage.instance.getObject('version').alignment = 'right';
+		}
 	}
 }

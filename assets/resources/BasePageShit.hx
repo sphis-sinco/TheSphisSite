@@ -22,7 +22,7 @@ class BasePageShit extends Module
 
 	public var helloworld:PageEvent = new PageEvent(new PageEventID(PageEventID.text, {
 		general_position: new Position(10, 10),
-		text_content: "Hello world!\nWelcome to The Sinco Site!",
+		text_content: "Hello world! Welcome to The Sinco Site!",
 		text_size: 32,
 		text_color: FlxColor.BLACK,
 	}), 'hello-world');
