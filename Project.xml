@@ -45,6 +45,7 @@
 	<haxelib name="flixel" />
 
 	<haxelib name="polymod" />
+	<haxelib name="hscript" />
 	<define name="hscriptPos" />
 
 	<!-- Options for Polymod -->
