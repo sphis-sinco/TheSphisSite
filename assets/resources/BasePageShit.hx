@@ -40,9 +40,7 @@ class BasePageShit extends Module
 			+ '\nCommit: '
 			+ GitUtils.getGitCommitHash()
 			+ '\nBranch: '
-			+ GitUtils.getGitBranch()
-			+ '\nLocal Changes: '
-			+ GitUtils.getGitHasLocalChanges(),
+			+ GitUtils.getGitBranch() #if debug + '\nLocal Changes: ' + GitUtils.getGitHasLocalChanges() #end,
 			text_size: 16,
 			text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 		}), 'version');
