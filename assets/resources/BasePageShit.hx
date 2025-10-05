@@ -2,6 +2,7 @@ import flixel.FlxG;
 import flixel.util.FlxColor;
 import sphis.site.Preferences;
 import sphis.site.modding.modules.Module;
+import sphis.site.states.site.Index;
 import sphis.site.states.site.PageEvent;
 import sphis.site.states.site.PageEventID;
 import sphis.site.utils.GitUtils;
@@ -53,5 +54,22 @@ class BasePageShit extends Module
 			img_graphicColor: (Preferences.darkMode) ? FlxColor.fromString('0xA0A0A0') : FlxColor.fromString('0x808080'),
 			img_graphicDimensions: [FlxG.width, 16],
 		}), 'splitter');
+	}
+
+	public function back(position:Position)
+	{
+		return new PageEvent(new PageEventID(PageEventID.url_text, {
+			general_position: position,
+
+			text_content: "Back",
+			text_size: 24,
+			text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
+
+			url_obj_pressed_callback: () ->
+			{
+				FlxG.switchState(() -> new Index());
+			},
+			url_text_hover_color: FlxColor.LIME
+		}), 'back-url');
 	}
 }

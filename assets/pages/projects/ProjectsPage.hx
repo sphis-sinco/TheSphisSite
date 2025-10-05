@@ -12,18 +12,18 @@ import sphis.site.states.site.PageEventID;
 import sphis.site.utils.PathUtils;
 import sphis.site.utils.Position;
 
-class PreferencesPage extends Module
+class ProjectsPage extends Module
 {
 	override public function new()
 	{
-		super('preferences-page');
+		super('projects-page');
 	}
 
 	override function onCreate(event:CreateEvent)
 	{
 		super.onCreate(event);
 
-		if (event.state != 'preferences')
+		if (event.state != 'projects')
 			return;
 
 		performedPostCreateFunctions = false;
@@ -35,29 +35,6 @@ class PreferencesPage extends Module
 			ModuleHandler.getModule('base-page-shit').version,
 			ModuleHandler.getModule('base-page-shit').splitter,
 			ModuleHandler.getModule('base-page-shit').back(new Position(10, 130)),
-
-			new PageEvent(new PageEventID(PageEventID.url_text, {
-				general_position: new Position(/* 32 + 50 */ 10, 130 + 50),
-
-				text_content: "Dark mode: " + Preferences.darkMode,
-				text_size: 24,
-				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
-
-				url_obj_pressed_callback: () ->
-				{
-					Preferences.darkMode = !Preferences.darkMode;
-					FlxG.switchState(() -> new BlankPage('preferences'));
-				},
-				url_text_hover_color: FlxColor.LIME
-			}), 'dark-mode-toggle'),
-			/*
-				new PageEvent(new PageEventID(PageEventID.image, {
-					general_position: new Position(32, 130 + 50),
-
-					img_assetPath: PathUtils.getImage('pages/preferences/checkbox-' + ((Preferences.darkMode) ? 'on' : 'off')),
-					img_scale: new Position(2, 2),
-				}), 'dark-mode-toggle-checkbox'),
-			 */
 		];
 	}
 
@@ -67,14 +44,14 @@ class PreferencesPage extends Module
 	{
 		super.onUpdate(event);
 
-		if (event.state != 'preferences' || performedPostCreateFunctions)
+		if (event.state != 'projects' || performedPostCreateFunctions)
 			return;
 
 		performedPostCreateFunctions = true;
 
 		if (BlankPage.instance.getObject('hello-world') != null)
 		{
-			BlankPage.instance.getObject('hello-world').text += '\n(Preferences Page)';
+			BlankPage.instance.getObject('hello-world').text += '\n(Projects Page)';
 		}
 
 		if (BlankPage.instance.getObject('version') != null)
