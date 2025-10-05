@@ -92,6 +92,8 @@ class ProjectsPage extends Module
 		});
 	}
 
+	public var max_x:Float = 0;
+
 	override function onCreate(event:CreateEvent)
 	{
 		super.onCreate(event);
@@ -111,6 +113,7 @@ class ProjectsPage extends Module
 		];
 
 		var position:Position = new Position(10, 180);
+		max_x = 0;
 
 		for (project in projects)
 		{
@@ -138,6 +141,9 @@ class ProjectsPage extends Module
 				position.x += text_content.length * 18;
 				position.y = 130;
 			}
+
+			if (position.x > max_x)
+				max_x = position.x;
 		}
 	}
 
