@@ -3,6 +3,7 @@ import flixel.util.FlxColor;
 import sphis.site.modding.events.CreateEvent;
 import sphis.site.modding.events.UpdateEvent;
 import sphis.site.modding.modules.Module;
+import sphis.site.modding.modules.ModuleHandler;
 import sphis.site.states.site.BlankPage;
 import sphis.site.states.site.Index;
 import sphis.site.states.site.PageEvent;
@@ -25,42 +26,10 @@ class IndexPage extends Module
 			return;
 
 		Index.instance.pageContent = [
-			new PageEvent(new PageEventID(PageEventID.image, {
-				general_position: new Position(0, 0),
-
-				img_makeGraphic: true,
-				img_graphicColor: FlxColor.WHITE,
-				img_graphicDimensions: [FlxG.width, FlxG.height],
-			}), 'backdrop'),
-
-			new PageEvent(new PageEventID(PageEventID.text, {
-				general_position: new Position(10, 10),
-
-				text_content: "Hello world!\nWelcome to The Sinco Site!",
-				text_size: 32,
-				text_color: FlxColor.BLACK,
-			}), 'hello-world'),
-
-			new PageEvent(new PageEventID(PageEventID.text, {general_position: new Position(0, 10),
-
-				text_content: 'Git info:'
-				+ '\nCommit: '
-				+ GitUtils.getGitCommitHash()
-				+ '\nBranch: '
-				+ GitUtils.getGitBranch()
-				+ '\nLocal Changes: '
-				+ GitUtils.getGitHasLocalChanges(),
-				text_size: 16,
-				text_color: FlxColor.BLACK,
-			}), 'version'),
-
-			new PageEvent(new PageEventID(PageEventID.image, {
-				general_position: new Position(0, 100),
-
-				img_makeGraphic: true,
-				img_graphicColor: FlxColor.GRAY,
-				img_graphicDimensions: [FlxG.width, 16],
-			}), 'splitter'),
+			ModuleHandler.getModule('base-page-shit').backdrop,
+			ModuleHandler.getModule('base-page-shit').helloworld,
+			ModuleHandler.getModule('base-page-shit').version,
+			ModuleHandler.getModule('base-page-shit').splitter,
 
 			new PageEvent(new PageEventID(PageEventID.url_text, {
 				general_position: new Position(10, 130),
@@ -93,7 +62,7 @@ class IndexPage extends Module
 
 				url_obj_pressed_callback: () ->
 				{
-					FlxG.switchState(() -> new BlankPage('preferences-menu'));
+					FlxG.switchState(() -> new BlankPage('preferences'));
 				},
 				url_text_hover_color: FlxColor.LIME
 			}), 'preferences-url'),
