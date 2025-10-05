@@ -8,7 +8,6 @@ import sphis.site.states.site.BlankPage;
 import sphis.site.states.site.Index;
 import sphis.site.states.site.PageEvent;
 import sphis.site.states.site.PageEventID;
-import sphis.site.utils.GitUtils;
 import sphis.site.utils.Position;
 
 class IndexPage extends Module
@@ -24,6 +23,8 @@ class IndexPage extends Module
 
 		if (event.state != 'index')
 			return;
+
+		performedPostCreateFunctions = false;
 
 		Index.instance.pageContent = [
 			ModuleHandler.getModule('base-page-shit').backdrop,

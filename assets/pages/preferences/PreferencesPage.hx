@@ -5,6 +5,7 @@ import sphis.site.modding.events.UpdateEvent;
 import sphis.site.modding.modules.Module;
 import sphis.site.modding.modules.ModuleHandler;
 import sphis.site.states.site.BlankPage;
+import sphis.site.states.site.Index;
 import sphis.site.states.site.PageEvent;
 import sphis.site.states.site.PageEventID;
 import sphis.site.utils.Position;
@@ -23,11 +24,27 @@ class PreferencesPage extends Module
 		if (event.state != 'preferences')
 			return;
 
+		performedPostCreateFunctions = false;
+
 		BlankPage.instance.pageContent = [
 			ModuleHandler.getModule('base-page-shit').backdrop,
 			ModuleHandler.getModule('base-page-shit').helloworld,
 			ModuleHandler.getModule('base-page-shit').version,
 			ModuleHandler.getModule('base-page-shit').splitter,
+
+			new PageEvent(new PageEventID(PageEventID.url_text, {
+				general_position: new Position(10, 130),
+
+				text_content: "Back",
+				text_size: 24,
+				text_color: FlxColor.BLACK,
+
+				url_obj_pressed_callback: () ->
+				{
+					FlxG.switchState(() -> new Index());
+				},
+				url_text_hover_color: FlxColor.LIME
+			}), 'back-url'),
 		];
 	}
 
