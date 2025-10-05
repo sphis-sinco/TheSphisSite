@@ -23,12 +23,10 @@ class Page extends ModuleState
 		refresh();
 
 		add(objects);
-
 	}
 
 	public function refresh()
 	{
-
 		if (objects == null)
 			objects = new FlxTypedGroup<FlxBasic>();
 
@@ -77,5 +75,20 @@ class Page extends ModuleState
 				objects.add(newObject);
 			}
 		}
+	}
+	public function getObject(id:String):FlxBasic
+	{
+		var indexOfId = -1;
+
+		var index = 0;
+		for (content in pageContent)
+		{
+			if (content.id == id)
+				indexOfId = index;
+
+			index++;
+		}
+
+		return ((indexOfId >= 0) ? objects.members[indexOfId] : null);
 	}
 }

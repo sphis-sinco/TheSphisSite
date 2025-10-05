@@ -1,6 +1,8 @@
 import flixel.FlxG;
+import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import modding.events.CreateEvent;
+import modding.events.UpdateEvent;
 import modding.modules.Module;
 import states.site.Index;
 import states.site.PageEvent;
@@ -36,6 +38,15 @@ class IndexPage extends Module
 					text_color: FlxColor.BLACK
 				}), 'hi'),
 			];
+		}
+	}
+	override function onUpdate(event:UpdateEvent)
+	{
+		super.onUpdate(event);
+
+		if (event.state == 'index')
+		{
+			Index.instance.getObject('hi').color = (FlxG.mouse.overlaps(Index.instance.getObject('hi')) ? FlxColor.BLUE : FlxColor.BLACK);
 		}
 	}
 }
