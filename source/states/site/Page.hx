@@ -14,17 +14,6 @@ class Page extends ModuleState
 
 	public var objects:FlxTypedGroup<FlxBasic>;
 
-	override function create()
-	{
-		super.create();
-
-		if (objects == null)
-			objects = new FlxTypedGroup<FlxBasic>();
-		refresh();
-
-		add(objects);
-	}
-
 	public function refresh()
 	{
 		if (objects == null)
@@ -76,6 +65,7 @@ class Page extends ModuleState
 			}
 		}
 	}
+
 	public function getObject(id:String):FlxBasic
 	{
 		var indexOfId = -1;
@@ -90,5 +80,20 @@ class Page extends ModuleState
 		}
 
 		return ((indexOfId >= 0) ? objects.members[indexOfId] : null);
+	}
+	override public function create()
+	{
+		super.create();
+
+		if (objects == null)
+			objects = new FlxTypedGroup<FlxBasic>();
+		refresh();
+
+		add(objects);
+	}
+
+	override public function update(elapsed:Float)
+	{
+		super.update(elapsed);
 	}
 }

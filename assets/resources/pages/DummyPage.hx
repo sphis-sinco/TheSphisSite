@@ -11,25 +11,25 @@ import states.site.PageEvent;
 import states.site.PageEventID;
 import utils.Position;
 
-class IndexPage extends Module
+class DummyPage extends Module
 {
 	override public function new()
 	{
-		super('index-page');
+		super('dummy-page');
 	}
 
 	override function onCreate(event:CreateEvent)
 	{
 		super.onCreate(event);
 
-		if (event.state == 'index')
+		if (event.state == 'dummy-page')
 		{
-			Index.instance.pageContent = [
+			BlankPage.instance.pageContent = [
 				new PageEvent(new PageEventID(PageEventID.image, {
 					general_position: new Position(0, 0),
 
 					img_makeGraphic: true,
-					img_graphicColor: FlxColor.WHITE,
+					img_graphicColor: FlxColor.BLACK,
 					img_graphicDimensions: [FlxG.width, FlxG.height]
 				}), 'backdrop'),
 				new PageEvent(new PageEventID(PageEventID.text, {
@@ -37,7 +37,7 @@ class IndexPage extends Module
 
 					text_content: "Hello world!",
 					text_size: 32,
-					text_color: FlxColor.BLACK
+					text_color: FlxColor.WHITE
 				}), 'hi'),
 			];
 		}
@@ -46,12 +46,12 @@ class IndexPage extends Module
 	{
 		super.onUpdate(event);
 
-		if (event.state == 'index')
+		if (event.state == 'dummy-page')
 		{
-			Index.instance.getObject('hi').color = (FlxG.mouse.overlaps(Index.instance.getObject('hi')) ? FlxColor.BLUE : FlxColor.BLACK);
-			if (FlxG.mouse.justReleased && FlxG.mouse.overlaps(Index.instance.getObject('hi')))
+			BlankPage.instance.getObject('hi').color = (FlxG.mouse.overlaps(BlankPage.instance.getObject('hi')) ? FlxColor.BLUE : FlxColor.WHITE);
+			if (FlxG.mouse.justReleased && FlxG.mouse.overlaps(BlankPage.instance.getObject('hi')))
 			{
-				FlxG.switchState(() -> new BlankPage('dummy-page'));
+				FlxG.switchState(() -> new Index());
 			}
 		}
 	}

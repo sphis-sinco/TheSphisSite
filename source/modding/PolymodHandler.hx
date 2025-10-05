@@ -54,7 +54,9 @@ class PolymodHandler
 
 	public static function addImports()
 	{
-		// Polymod.addImportAlias('flixel.math.FlxPoint', FlxPointClass);
+		Polymod.addImportAlias('states.site.BlankPage', BlankPage);
+		Polymod.addImportAlias('states.site.Index', Index);
+		Polymod.addImportAlias('states.site.BlankState', BlankState);
 	}
 
 	public static function buildParseRules():polymod.format.ParseRules
@@ -150,6 +152,7 @@ class PolymodHandler
 			modFileSystem = buildFileSystem();
 
 		// Forcibly clear scripts so that scripts can be edited.
+		PageHandler.destroyPages();
 		ModuleHandler.destroyModules();
 		Polymod.clearScripts();
 
@@ -157,6 +160,7 @@ class PolymodHandler
 
 		loadMods(getAllModIds());
 		ModuleHandler.loadModules();
+		PageHandler.loadPages();
 
 		if (FlxG.state != null)
 			FlxG.resetState();
