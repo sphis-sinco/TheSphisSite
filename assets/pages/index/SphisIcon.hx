@@ -47,20 +47,24 @@ class SphisIcon extends Module
 			return;
 
 		icon = new FlxSprite();
-		newPose();
+		newPose('chill');
 
 		icon.screenCenter();
+		icon.x += (icon.width * 1.2);
+		icon.y += (icon.height * .5);
 
 		performedPostCreateFunctionsTick = 0;
+
+		newPose(null);
 	}
 
-	public function newPose()
+	public function newPose(desire:String)
 	{
 		icon.frames = FlxAtlasFrames.fromSparrow(PathUtils.getImage('pages/index/Sphis_Icon'), PathUtils.getAssetPath('pages/index/Sphis_Icon.xml'));
 
 		for (pose in poses)
 		{
-			var cond = (FlxG.random.bool(pose.chance) && !icon.animation.getNameList().contains('pose'));
+			var cond = (FlxG.random.bool(pose.chance) && !icon.animation.getNameList().contains('pose')) || pose.suffix == desire;
 
 			if (cond)
 			{
@@ -73,7 +77,7 @@ class SphisIcon extends Module
 
 		if (icon.animation.getNameList().length < 1)
 		{
-			newPose();
+			newPose(null);
 			return;
 		}
 
@@ -92,9 +96,15 @@ class SphisIcon extends Module
 
 		if (icon == null)
 			return;
+		icon.scale.set(1, 1);
 
-		if (FlxG.mouse.overlaps(icon) && FlxG.mouse.justReleased)
-			newPose();
+		if (FlxG.mouse.overlaps(icon))
+		{
+			if (FlxG.mouse.pressed)
+				icon.scale.set(.9, .9);
+			if (FlxG.mouse.justReleased)
+				newPose(null);
+		}
 
 		if (performedPostCreateFunctionsTick == performedPostCreateFunctionsMaxTick)
 			return;
