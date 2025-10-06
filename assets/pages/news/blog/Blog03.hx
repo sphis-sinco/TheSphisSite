@@ -57,7 +57,8 @@ class Blog3 extends Module
 
 				text_size: 24,
 				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
-				text_content: "New blog post becuz the sites gettin' updates now because I remembered I wanted to make an interactive site." + "\nSo yeah."
+				text_content: "New blog post becuz the sites gettin' updates now because" + "\nI remembered I wanted to make an interactive site." +
+				"\nSo yeah."
 			}), 'msg'),
 		];
 	}
