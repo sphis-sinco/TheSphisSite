@@ -2,10 +2,10 @@
 <TextureAtlas imagePath="Sphis_Icon.png">
 	<!-- Created with Adobe Animate version 21.0.6.41649 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="pose chill0000" x="4" y="4" width="354" height="344"/>
-	<SubTexture name="pose eye glint0000" x="366" y="4" width="431" height="435"/>
-	<SubTexture name="pose eye glint0001" x="366" y="4" width="431" height="435"/>
-	<SubTexture name="pose eye glint0002" x="4" y="447" width="431" height="435"/>
-	<SubTexture name="pose eye glint0003" x="4" y="447" width="431" height="435"/>
-	<SubTexture name="pose smirk0000" x="443" y="447" width="279" height="318"/>
+	<SubTexture name="pose chill0000" x="4" y="4" width="357" height="344"/>
+	<SubTexture name="pose eye glint0000" x="369" y="4" width="459" height="435"/>
+	<SubTexture name="pose eye glint0001" x="369" y="4" width="459" height="435"/>
+	<SubTexture name="pose eye glint0002" x="4" y="447" width="459" height="435"/>
+	<SubTexture name="pose eye glint0003" x="4" y="447" width="459" height="435"/>
+	<SubTexture name="pose smirk0000" x="471" y="447" width="330" height="318"/>
 </TextureAtlas>
