@@ -26,6 +26,7 @@ class NewsPage extends Module
 		var doBloat = false;
 
 		addNews('Blog #1 (10/5/2025)', 'blog1');
+		addNews('Blog #2 (10/6/2025)', 'blog2');
 
 		if (doBloat)
 		{
