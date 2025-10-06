@@ -7,6 +7,7 @@ import sphis.site.states.site.PageEvent;
 import sphis.site.states.site.PageEventID;
 import sphis.site.utils.GitUtils;
 import sphis.site.utils.Position;
+import sphis.site.utils.ScriptUtils;
 
 class BasePageShit extends Module
 {
@@ -40,7 +41,8 @@ class BasePageShit extends Module
 			+ '\nCommit: '
 			+ GitUtils.getGitCommitHash()
 			+ '\nBranch: '
-			+ GitUtils.getGitBranch() #if debug + '\nLocal Changes: ' + GitUtils.getGitHasLocalChanges() #end,
+			+ GitUtils.getGitBranch()
+			+ ((ScriptUtils.debugBuild) ? '\nLocal Changes: ' + GitUtils.getGitHasLocalChanges() : ''),
 			text_size: 16,
 			text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 		}), 'version');

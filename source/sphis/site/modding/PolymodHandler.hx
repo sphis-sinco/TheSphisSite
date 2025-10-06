@@ -16,6 +16,7 @@ import sphis.site.states.*;
 import sphis.site.states.site.*;
 import sphis.site.utils.GitUtils;
 import sphis.site.utils.PathUtils;
+import sphis.site.utils.ScriptUtils;
 import sphis.site.utils.StateUtils;
 #if sys
 import sys.FileSystem;
@@ -62,8 +63,11 @@ class PolymodHandler
 		Polymod.addImportAlias('flixel.FlxCamera.FlxCameraFollowStyle', FlxCameraFollowStyleCheat);
 		Polymod.addImportAlias('flixel.input.keyboard.FlxKey', FlxKeyCheat);
 
-		Polymod.addImportAlias('sphis.site.utils.GitUtils', GitUtils);
-		Polymod.addImportAlias('sphis.site.utils.PathUtils', PathUtils);
+		/*
+			Polymod.addImportAlias('sphis.site.utils.GitUtils', GitUtils);
+			Polymod.addImportAlias('sphis.site.utils.PathUtils', PathUtils);
+			Polymod.addImportAlias('sphis.site.utils.ScriptUtils', ScriptUtils);
+		 */
 
 		Polymod.addImportAlias('sphis.site.states.site.BlankPage', BlankPage);
 		Polymod.addImportAlias('sphis.site.states.site.Index', Index);
