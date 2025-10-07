@@ -52,14 +52,18 @@ class Blog3 extends Module
 				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 				text_content: "Heya."
 			}), 'greet'),
-			new PageEvent(new PageEventID(PageEventID.text, {
-				general_position: new Position(10, 275),
+			new PageEvent(new PageEventID(PageEventID.text, {general_position: new Position(10, 275),
 
 				text_size: 24,
 				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
-				text_content: "New blog post becuz the sites gettin' updates now because" + "\nI remembered I wanted to make an interactive site." +
-				"\nSo yeah."
-			}), 'msg'),
+				text_content: "New blog post becuz the sites gettin' updates now because"
+				+ "\nI remembered I wanted to make an interactive site."
+				+ "\nSo yeah."
+				+ "\nThere is now the Sphis Riryk on the Index page for just,"
+				+ "\nsmth to mess with."
+				+ "\nSo far only 3 \"poses\" that it has that you can get"
+				+ "\n\nSo yeah."
+				+ "\nThat's it. Adios."}), 'msg'),
 		];
 	}
 
