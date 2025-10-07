@@ -59,7 +59,11 @@ class Blog4 extends Module
 				text_content: "At this point the blogs are just changelogs LMAO"
 				+ "\n\nAnyway: More Sphis icons! Cuz..."
 				+ "\nI wanted to draw, so."
-				+ "\nYeah."}), 'msg'),
+				+ "\nYeah."
+				+ "\n\nAlso some new random chances."
+				+ "\nFor the old poses."
+				+ "\nThey didn't really seem..."
+				+ "\nright."}), 'msg'),
 		];
 	}
 

@@ -34,9 +34,9 @@ class SphisIcon extends Module
 
 		poses = [];
 
-		addPose('chill', 45);
-		addPose('eye glint', 8, new Position(30, 60));
-		addPose('smirk', 15, new Position(-30, -15));
+		addPose('chill', 15);
+		addPose('eye glint', 10, new Position(30, 60));
+		addPose('smirk', 20, new Position(-30, -15));
 		addPose(':0', 30, new Position(0, -35));
 		addPose(':D', 30, new Position(-30, 0));
 		addPose('bucket', 25, new Position(-60, -60));
