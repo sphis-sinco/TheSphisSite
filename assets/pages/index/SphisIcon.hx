@@ -37,11 +37,11 @@ class SphisIcon extends Module
 		addPose('chill', 45);
 		addPose('eye glint', 8, new Position(30, 60));
 		addPose('smirk', 15, new Position(-30, -15));
-		addPose(':0', 30);
-		addPose(':D', 30);
-		addPose('bucket', 25);
-		addPose('confused', 5);
-		addPose('toungeOut', 18);
+		addPose(':0', 30, new Position(0, -35));
+		addPose(':D', 30, new Position(-30, 0));
+		addPose('bucket', 25, new Position(-60, -60));
+		addPose('confused', 5, new Position(-30, -30));
+		addPose('toungeOut', 18, new Position(0, 30));
 	}
 
 	override function onCreate(event:CreateEvent)
