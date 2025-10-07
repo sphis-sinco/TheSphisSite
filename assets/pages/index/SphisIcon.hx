@@ -82,6 +82,7 @@ class SphisIcon extends Module
 		}
 
 		icon.animation.play('pose');
+		icon.antialiasing = true;
 	}
 
 	public var performedPostCreateFunctionsTick = 0;
