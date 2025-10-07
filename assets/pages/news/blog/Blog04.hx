@@ -52,13 +52,14 @@ class Blog4 extends Module
 				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 				text_content: "Heya."
 			}), 'greet'),
-			new PageEvent(new PageEventID(PageEventID.text, {
-				general_position: new Position(10, 275),
+			new PageEvent(new PageEventID(PageEventID.text, {general_position: new Position(10, 275),
 
 				text_size: 24,
 				text_color: (Preferences.darkMode) ? FlxColor.WHITE : FlxColor.BLACK,
 				text_content: "At this point the blogs are just changelogs LMAO"
-			}), 'msg'),
+				+ "\n\nAnyway: More Sphis icons! Cuz..."
+				+ "\nI wanted to draw, so."
+				+ "\nYeah."}), 'msg'),
 		];
 	}
 
