@@ -29,6 +29,7 @@ class NewsPage extends Module
 		addNews('Blog #2 (10/6/2025)', 'blog2');
 		addNews('Blog #3 (10/6/2025)', 'blog3');
 		addNews('Blog #4 (10/7/2025)', 'blog4');
+		addNews('Blog #5 (10/8/2025)', 'blog5');
 
 		if (doBloat)
 		{
